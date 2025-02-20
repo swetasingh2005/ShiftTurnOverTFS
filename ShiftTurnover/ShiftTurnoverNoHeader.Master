@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShiftTurnoverNoHeader.Master.cs" Inherits="ShiftTurnover.ShiftTurnoverNoHeader" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><%: Page.Title %></title>
+
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+
+<!--[if lt IE 9]>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+	<script src="https://code.jquery.com/jquery-2.0.3.js"></script>
+<!--<![endif]-->
+
+    <!--  -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" runat="server" />
+       <link href="~/Content/extrastyles.css" rel="stylesheet" runat="server" />
+    <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="/Scripts/superfish.js"></script>
+
+    <link href="~/Content/styles.css" rel="stylesheet" runat="server" />
+    <link href="~/Content/superfish.css" type="text/css" rel="stylesheet" media="screen" runat="server" />
+    <script src="Scripts/Highcharts-4.0.1/js/highcharts.js"></script>
+    <link rel="stylesheet" href="Content/font-awesome.min.css" />
+
+     
+
+     
+    
+       
+    
+            
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body id="mpagenoborder">
+    <div class="loader"></div>
+    <form id="form1" runat="server" name="form1">
+        
+   
+        
+<!--        
+        <div id="banner">
+            <div id="bannerShiftTurnover">
+                <img id="bannernew" src='~/images/DTR_Banner_logo_red.png' alt="" runat="server" />
+                
+            </div>
+        </div>
+        
+ replaced banner below -->
+
+         
+          
+         
+        
+        
+          
+        
+                        
+        <asp:Table ID="maincontent" runat="server" CellSpacing="0" CellPadding="0">
+            <asp:TableRow VerticalAlign="Top">
+                <asp:TableCell ID="widecolumn">
+                    
+    <div>
+         
+
+        <asp:Table ID="tableMain" runat="server" CellPadding="10" CellSpacing="0" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow>
+                <asp:TableCell VerticalAlign="Top">
+               
+
+                         
+             <div id="main" style="margin-left:0px; margin-top:0px;  "    >
+                        <asp:ContentPlaceHolder ID="cph_main" runat="server">
+                           
+
+                               
+                        </asp:ContentPlaceHolder>
+                  </div>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>           
+    </div>
+                    <!-- END WIDE COLUMN OF MAIN CONTENT -->
+                    </asp:TableCell>
+                
+             
+                </asp:TableRow>
+    </asp:Table>
+        <!-- END MAIN CONTENT -->
+    <div>
+                 
+            
+        
+        
+    </div>
+    </form>
+</body>
+</html>

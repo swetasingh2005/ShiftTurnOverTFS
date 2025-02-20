@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftTurnover.BL", "ShiftTurnover.BL\ShiftTurnover.BL.csproj", "{6637AE9E-BCB6-4C9A-BA79-21003C1123D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftTurnover.DL", "ShiftTurnover.DL\ShiftTurnover.DL.csproj", "{404CBB42-A760-4C42-92A8-DBB4AC4C6FA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftTurnover.Components", "ShiftTurnover.Components\ShiftTurnover.Components.csproj", "{AE1B5A57-9A96-4E86-9107-78273985DBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftTurnover", "ShiftTurnover\ShiftTurnover.csproj", "{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6637AE9E-BCB6-4C9A-BA79-21003C1123D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6637AE9E-BCB6-4C9A-BA79-21003C1123D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6637AE9E-BCB6-4C9A-BA79-21003C1123D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6637AE9E-BCB6-4C9A-BA79-21003C1123D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404CBB42-A760-4C42-92A8-DBB4AC4C6FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404CBB42-A760-4C42-92A8-DBB4AC4C6FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404CBB42-A760-4C42-92A8-DBB4AC4C6FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404CBB42-A760-4C42-92A8-DBB4AC4C6FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1B5A57-9A96-4E86-9107-78273985DBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1B5A57-9A96-4E86-9107-78273985DBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1B5A57-9A96-4E86-9107-78273985DBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1B5A57-9A96-4E86-9107-78273985DBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {DFE4F50F-3208-46FB-91B8-9C9E839D31DB}
+	EndGlobalSection
+EndGlobal

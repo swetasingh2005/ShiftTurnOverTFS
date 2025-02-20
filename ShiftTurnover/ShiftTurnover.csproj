@@ -1,0 +1,1247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61671CD7-5FDC-44FA-B3C3-C8F30C0ABB9A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShiftTurnover</RootNamespace>
+    <AssemblyName>ShiftTurnover</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary">
+      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Byaxiom.iTextSharpExtensions">
+      <HintPath>..\packages\Byaxiom.iTextSharpExtensions.1.0.1\lib\Byaxiom.iTextSharpExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNet.Highcharts, Version=4.0.0.0, Culture=neutral, PublicKeyToken=88854f873df851bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNet.Highcharts.4.0\lib\DotNet.Highcharts.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary">
+      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf, Version=5.2.0.22321, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\dlls\IronPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.0\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.0\lib\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.0\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\packages\itextsharp.xtra.5.5.0\lib\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="itsUtils">
+      <HintPath>..\packages\itsUtils.1.0.3.0\lib\net45\itsUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\Visual Studio Tools for Office\PIA\Office14\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\dlls\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OSIsoft.AF.UI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6238be57836698e6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Bin\STO\OSIsoft.AF.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="OSIsoft.AFSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6238be57836698e6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Bin\STO\OSIsoft.AFSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\dlls\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AnswerPopup.aspx" />
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Assets\css\bootstrap-combined.min.css" />
+    <Content Include="Assets\css\bootstrap-datetimepicker-4.17.47.css" />
+    <Content Include="Assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Assets\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="Assets\css\images\ui-icons_555555_256x240.png" />
+    <Content Include="Assets\css\images\ui-icons_777777_256x240.png" />
+    <Content Include="Assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Assets\img\glyphicons-halflings-white.png" />
+    <Content Include="Assets\img\glyphicons-halflings.png" />
+    <Content Include="Assets\js\bootstrap-datetimepicker-4.17.47.js" />
+    <Content Include="Assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Assets\js\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Assets\js\bootstrap.js" />
+    <Content Include="Assets\js\jquery.js" />
+    <Content Include="CUPDocumentUpload.aspx" />
+    <Content Include="FuelLog.aspx" />
+    <Content Include="WaterTreatmentLog.aspx" />
+    <Content Include="HVGLog.aspx" />
+    <Content Include="EngineeringLog.aspx" />
+    <Content Include="Images\bell_icon.gif" />
+    <Content Include="LoadHtml.aspx" />
+    <Content Include="LoadHTML_Old.aspx" />
+    <Content Include="ViewAttachment.aspx" />
+    <Content Include="WTBenchMarkingReport.aspx" />
+    <Content Include="AuxBenchMarkingReport.aspx" />
+    <Content Include="ChillerBenchMarkingReport.aspx" />
+    <Content Include="ChangeRole.aspx" />
+    <Content Include="CheckStatusAll.aspx" />
+    <Content Include="Help_WildCard.aspx" />
+    <Content Include="LiveLogSearch.aspx" />
+    <Content Include="NewTurnover_Acknowledgement.aspx" />
+    <Content Include="NewTurnover_Rounds.aspx" />
+    <Content Include="BenchMarkingReport.aspx" />
+    <Content Include="ReportNotSubmitted.aspx" />
+    <Content Include="NewTurnover_LOTO.aspx" />
+    <Content Include="NewTurnover_Selector.aspx" />
+    <Content Include="NewTurnover_CriticalAlm.aspx" />
+    <Content Include="OldTurnoverEdit.aspx" />
+    <Content Include="Reports.aspx" />
+    <Content Include="ShowChart.aspx" />
+    <Content Include="CheckStatus.aspx" />
+    <Content Include="Chillers.aspx" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\column.png" />
+    <Content Include="Content\DTR_Banner_logo_red.png" />
+    <Content Include="Content\DTR_red.png" />
+    <Content Include="Content\extrastyles.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery.dataTables.css" />
+    <Content Include="Content\magnifier.css" />
+    <Content Include="Content\megafish.css" />
+    <Content Include="Content\NIH_Master_Logo_Mark_2Color.png" />
+    <Content Include="Content\override.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\superfish-navbar.css" />
+    <Content Include="Content\superfish-vertical.css" />
+    <Content Include="Content\superfish.css" />
+    <Content Include="CustomErrorPage.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="EquipmentStatus.aspx" />
+    <Content Include="GSSTest.aspx" />
+    <Content Include="Images\actionbutton_addcomment_off.gif" />
+    <Content Include="Images\actionbutton_addcomment_on.gif" />
+    <Content Include="Images\actionbutton_add_off.gif" />
+    <Content Include="Images\actionbutton_add_on.gif" />
+    <Content Include="Images\actionbutton_approvedeny_off.gif" />
+    <Content Include="Images\actionbutton_assignreports_off.gif" />
+    <Content Include="Images\actionbutton_assign_off.gif" />
+    <Content Include="Images\actionbutton_attachments_off.gif" />
+    <Content Include="Images\actionbutton_cancel_off.gif" />
+    <Content Include="Images\actionbutton_changename_off.gif" />
+    <Content Include="Images\actionbutton_changename_on.gif" />
+    <Content Include="Images\actionbutton_confirm_off.gif" />
+    <Content Include="Images\actionbutton_deactivate_off.gif" />
+    <Content Include="Images\actionbutton_delete_off.gif" />
+    <Content Include="Images\actionbutton_delete_on.gif" />
+    <Content Include="Images\actionbutton_details_off.gif" />
+    <Content Include="Images\actionbutton_details_on.gif" />
+    <Content Include="Images\actionbutton_download_off.gif" />
+    <Content Include="Images\actionbutton_download_on.gif" />
+    <Content Include="Images\actionbutton_duplicate_off.gif" />
+    <Content Include="Images\actionbutton_editreplace.gif" />
+    <Content Include="Images\actionbutton_editroles.gif" />
+    <Content Include="Images\actionbutton_editupload_off.gif" />
+    <Content Include="Images\actionbutton_edit_off.gif" />
+    <Content Include="Images\actionbutton_edit_on.gif" />
+    <Content Include="Images\actionbutton_inputform_off.gif" />
+    <Content Include="Images\actionbutton_inputform_on.gif" />
+    <Content Include="Images\actionbutton_preview_off.gif" />
+    <Content Include="Images\actionbutton_preview_on.gif" />
+    <Content Include="Images\actionbutton_printablepdf_off.gif" />
+    <Content Include="Images\actionbutton_printablepdf_on.gif" />
+    <Content Include="Images\actionbutton_print_off.gif" />
+    <Content Include="Images\actionbutton_readonlyform_off.gif" />
+    <Content Include="Images\actionbutton_readonlyform_on.gif" />
+    <Content Include="Images\actionbutton_remove_off.gif" />
+    <Content Include="Images\actionbutton_remove_on.gif" />
+    <Content Include="Images\actionbutton_reportpdf_off.gif" />
+    <Content Include="Images\actionbutton_reportpdf_on.gif" />
+    <Content Include="Images\actionbutton_respond.gif" />
+    <Content Include="Images\actionbutton_response_off.gif" />
+    <Content Include="Images\actionbutton_restore_off.gif" />
+    <Content Include="Images\actionbutton_resubmit_off.gif" />
+    <Content Include="Images\actionbutton_return_off.gif" />
+    <Content Include="Images\actionbutton_reviewdata.gif" />
+    <Content Include="Images\actionbutton_reviewedit_off.gif" />
+    <Content Include="Images\actionbutton_review_note.gif" />
+    <Content Include="Images\actionbutton_review_off.gif" />
+    <Content Include="Images\actionbutton_roles_off.gif" />
+    <Content Include="Images\actionbutton_select_off.gif" />
+    <Content Include="Images\actionbutton_select_on.gif" />
+    <Content Include="Images\actionbutton_unassign_off.gif" />
+    <Content Include="Images\actionbutton_upload_off.gif" />
+    <Content Include="Images\actionbutton_viewcomments_off.gif" />
+    <Content Include="Images\actionbutton_viewdetails_off.gif" />
+    <Content Include="Images\actionbutton_viewedit_off.gif" />
+    <Content Include="Images\actionbutton_viewpdf_off.gif" />
+    <Content Include="Images\actionbutton_view_off.gif" />
+    <Content Include="Images\actionbutton_view_on.gif" />
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\banner_bkgnd.gif" />
+    <Content Include="Images\banner_nihlogo.gif" />
+    <Content Include="Images\banner_nihlogox2.gif" />
+    <Content Include="Images\button_add.gif" />
+    <Content Include="Images\button_attachdocument.gif" />
+    <Content Include="Images\button_edit.gif" />
+    <Content Include="Images\button_purgeselectedrecords.gif" />
+    <Content Include="Images\button_purgeselectedrecords_blue.gif" />
+    <Content Include="Images\button_recreatepdf.gif" />
+    <Content Include="Images\button_savecomments.gif" />
+    <Content Include="Images\button_viewreport.gif" />
+    <Content Include="Images\Calendar.gif" />
+    <Content Include="Images\column.png" />
+    <Content Include="Images\comments_new.gif" />
+    <Content Include="Images\comments_no.gif" />
+    <Content Include="Images\comments_yes.gif" />
+    <Content Include="Images\Delete.png" />
+    <Content Include="Images\dhhs_logo_black.png" />
+    <Content Include="Images\DTR_Banner_logo_red.png" />
+    <Content Include="Images\DTR_red.png" />
+    <Content Include="Images\FAMasterSitePlan.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\flag_red.gif" />
+    <Content Include="Images\formulaBanner.jpg" />
+    <Content Include="Images\giphy.gif" />
+    <Content Include="Images\graycorner_topleft.gif" />
+    <Content Include="Images\graycorner_topright.gif" />
+    <Content Include="Images\Grid_ascending.jpg" />
+    <Content Include="Images\Grid_descending.jpg" />
+    <Content Include="Images\icon_alert.gif" />
+    <Content Include="Images\Icon_calculator.gif" />
+    <Content Include="Images\icon_calendar.gif" />
+    <Content Include="Images\icon_checkedbox.gif" />
+    <Content Include="Images\icon_checkmark.gif" />
+    <Content Include="Images\icon_pdf.gif" />
+    <Content Include="Images\icon_required.gif" />
+    <Content Include="Images\icon_required_big.gif" />
+    <Content Include="Images\left-tab.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\loading_wh.gif" />
+    <Content Include="Images\NavMenu_Button1.jpg" />
+    <Content Include="Images\NavMenu_Button2.jpg" />
+    <Content Include="Images\NavMenu_Button3.jpg" />
+    <Content Include="Images\NavMenu_Button4.jpg" />
+    <Content Include="Images\NavMenu_Button5.jpg" />
+    <Content Include="Images\NavMenu_Button6.jpg" />
+    <Content Include="Images\NavMenu_Button_AddReport_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_AddReport_inctive.jpg" />
+    <Content Include="Images\NavMenu_Button_DataCollection_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_DataCollection_Active_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_DataCollection_inactive.jpg" />
+    <Content Include="Images\NavMenu_Button_DataCollection_inactive_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_EditReport_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_EditReport_inactive.jpg" />
+    <Content Include="Images\NavMenu_Button_Incidents_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_Incidents_Active_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_Incidents_inactive_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_Incidents_inctive.jpg" />
+    <Content Include="Images\NavMenu_Button_PrevFindings_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_PrevFindings_Active_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_PrevFindings_inactive.jpg" />
+    <Content Include="Images\NavMenu_Button_PrevFindings_inactive_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSubmit_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSubmit_inactive.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSummary_Active.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSummary_Active_clear.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSummary_inactive.jpg" />
+    <Content Include="Images\NavMenu_Button_ReportSummary_inactive_clear.jpg" />
+    <Content Include="Images\NIH_Master_Logo_2Color-JPG.jpg" />
+    <Content Include="Images\NIH_Master_Logo_2Color-PNG.png" />
+    <Content Include="Images\NIH_Master_Logo_Mark_2Color.png" />
+    <Content Include="Images\NIH_Master_Logo_With_Tag_2Color-PNG.png" />
+    <Content Include="Images\pdf_icon.gif" />
+    <Content Include="Images\preloader.gif" />
+    <Content Include="Images\retro-tv-icon.jpg" />
+    <Content Include="Images\reviewstatus_changed.gif" />
+    <Content Include="Images\reviewstatus_cleared.gif" />
+    <Content Include="Images\reviewstatus_furtherreview.gif" />
+    <Content Include="Images\reviewstatus_moreinfoneeded.gif" />
+    <Content Include="Images\reviewstatus_notreviewed.gif" />
+    <Content Include="Images\reviewstatus_removed.gif" />
+    <Content Include="Images\right-tab.gif" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\sortarrow_down.gif" />
+    <Content Include="Images\sortarrow_up.gif" />
+    <Content Include="Images\tab_alerts_off.gif" />
+    <Content Include="Images\tab_alerts_on.gif" />
+    <Content Include="Images\tab_analysis_off.gif" />
+    <Content Include="Images\tab_analysis_on.gif" />
+    <Content Include="Images\tab_assignments_off.gif" />
+    <Content Include="Images\tab_assignments_on.gif" />
+    <Content Include="Images\tab_calendar_off.gif" />
+    <Content Include="Images\tab_calendar_on.gif" />
+    <Content Include="Images\tab_exceptions_off.gif" />
+    <Content Include="Images\tab_exceptions_on.gif" />
+    <Content Include="Images\tab_myinfo_off.gif" />
+    <Content Include="Images\tab_myinfo_on.gif" />
+    <Content Include="Images\tab_myreports_off.gif" />
+    <Content Include="Images\tab_myreports_on.gif" />
+    <Content Include="Images\tab_notifications_off.gif" />
+    <Content Include="Images\tab_notifications_on.gif" />
+    <Content Include="Images\tab_purge_off.gif" />
+    <Content Include="Images\tab_purge_on.gif" />
+    <Content Include="Images\tab_reports_off.gif" />
+    <Content Include="Images\tab_reports_on.gif" />
+    <Content Include="Images\tab_resources_off.gif" />
+    <Content Include="Images\tab_resources_on.gif" />
+    <Content Include="Images\tab_reviews_off.gif" />
+    <Content Include="Images\tab_reviews_on.gif" />
+    <Content Include="Images\tab_review_off.gif" />
+    <Content Include="Images\tab_review_on.gif" />
+    <Content Include="Images\tab_staff_off.gif" />
+    <Content Include="Images\tab_staff_on.gif" />
+    <Content Include="Images\ui-icons_222222_256x240.png" />
+    <Content Include="Images\ui-icons_454545_256x240.png" />
+    <Content Include="Images\wizbutton_coverpage_current.gif" />
+    <Content Include="Images\wizbutton_coverpage_disabled.gif" />
+    <Content Include="Images\wizbutton_coverpage_unvisited.gif" />
+    <Content Include="Images\wizbutton_coverpage_visited.gif" />
+    <Content Include="Images\wizbutton_dispatchreport_current.gif" />
+    <Content Include="Images\wizbutton_dispatchreport_disabled.gif" />
+    <Content Include="Images\wizbutton_dispatchreport_unvisited.gif" />
+    <Content Include="Images\wizbutton_dispatchreport_visited.gif" />
+    <Content Include="Images\wizbutton_dispatch_current.gif" />
+    <Content Include="Images\wizbutton_dispatch_disabled.gif" />
+    <Content Include="Images\wizbutton_dispatch_unvisited.gif" />
+    <Content Include="Images\wizbutton_dispatch_visited.gif" />
+    <Content Include="Images\wizbutton_gettingstarted_current.gif" />
+    <Content Include="Images\wizbutton_gettingstarted_unvisited.gif" />
+    <Content Include="Images\wizbutton_gettingstarted_visited.gif" />
+    <Content Include="Images\wizbutton_location_current.gif" />
+    <Content Include="Images\wizbutton_location_disabled.gif" />
+    <Content Include="Images\wizbutton_location_unvisited.gif" />
+    <Content Include="Images\wizbutton_location_visited.gif" />
+    <Content Include="Images\wizbutton_reportcoverpage_current.gif" />
+    <Content Include="Images\wizbutton_reportcoverpage_disabled.gif" />
+    <Content Include="Images\wizbutton_reportcoverpage_unvisited.gif" />
+    <Content Include="Images\wizbutton_reportcoverpage_visited.gif" />
+    <Content Include="Images\wizbutton_sendreport_current.gif" />
+    <Content Include="Images\wizbutton_sendreport_disabled.gif" />
+    <Content Include="Images\wizbutton_sendreport_unvisited.gif" />
+    <Content Include="Images\wizbutton_sendreport_visited.gif" />
+    <Content Include="Images\wizbutton_wrapup_current.gif" />
+    <Content Include="Images\wizbutton_wrapup_disabled.gif" />
+    <Content Include="Images\wizbutton_wrapup_unvisited.gif" />
+    <Content Include="Images\wizbutton_wrapup_visited.gif" />
+    <Content Include="Images\wiznavbutton_addattachment.gif" />
+    <Content Include="Images\wiznavbutton_addreportcomment.gif" />
+    <Content Include="Images\wiznavbutton_addrole.gif" />
+    <Content Include="Images\wiznavbutton_back.gif" />
+    <Content Include="Images\wiznavbutton_cancel.gif" />
+    <Content Include="Images\wiznavbutton_change.gif" />
+    <Content Include="Images\wiznavbutton_clearselectedentries.gif" />
+    <Content Include="Images\wiznavbutton_clearselectedentries2.gif" />
+    <Content Include="Images\wiznavbutton_continue.gif" />
+    <Content Include="Images\wiznavbutton_createreport.gif" />
+    <Content Include="Images\wiznavbutton_createreportrequest.gif" />
+    <Content Include="Images\wiznavbutton_delete.gif" />
+    <Content Include="Images\wiznavbutton_dispatchreport.gif" />
+    <Content Include="Images\wiznavbutton_edit.gif" />
+    <Content Include="Images\wiznavbutton_exporttoexcel.gif" />
+    <Content Include="Images\wiznavbutton_findemployee.gif" />
+    <Content Include="Images\wiznavbutton_notifyfiler.gif" />
+    <Content Include="Images\wiznavbutton_purgeselectedrecords.gif" />
+    <Content Include="Images\wiznavbutton_purgesrecords.gif" />
+    <Content Include="Images\wiznavbutton_recreatepdf.gif" />
+    <Content Include="Images\wiznavbutton_returnforreview.gif" />
+    <Content Include="Images\wiznavbutton_returntoreportlist.gif" />
+    <Content Include="Images\wiznavbutton_returntoreviewlist.gif" />
+    <Content Include="Images\wiznavbutton_save.gif" />
+    <Content Include="Images\wiznavbutton_saveandaddnext.gif" />
+    <Content Include="Images\wiznavbutton_saveandcontinue.gif" />
+    <Content Include="Images\wiznavbutton_saveandgoback.gif" />
+    <Content Include="Images\wiznavbutton_saveandreturntocomments.gif" />
+    <Content Include="Images\wiznavbutton_savechanges.gif" />
+    <Content Include="Images\wiznavbutton_savecomments.gif" />
+    <Content Include="Images\wiznavbutton_search.gif" />
+    <Content Include="Images\wiznavbutton_sendnotification....gif" />
+    <Content Include="Images\wiznavbutton_sendnotification.gif" />
+    <Content Include="Images\wiznavbutton_sendreport.gif" />
+    <Content Include="Images\wiznavbutton_showall.gif" />
+    <Content Include="Images\wiznavbutton_submit.gif" />
+    <Content Include="Images\wiznavbutton_submitcomments.gif" />
+    <Content Include="Images\wiznavbutton_submitforfinalapproval.gif" />
+    <Content Include="Images\wiznavbutton_submitreport.gif" />
+    <Content Include="Images\wiznavbutton_upload.gif" />
+    <Content Include="Images\wiznavbutton_viewcommentdetails.gif" />
+    <Content Include="Images\wiznavbutton_viewreport.gif" />
+    <Content Include="Images\word_icon.gif" />
+    <Content Include="Filer.sitemap" />
+    <Content Include="LogOut.aspx" />
+    <Content Include="MainPage.aspx" />
+    <Content Include="NewTurnover_ROBlrStatus.aspx" />
+    <Content Include="NewTurnover_BlrStatus.aspx" />
+    <Content Include="NewTurnover_FreeCoStatus.aspx" />
+    <Content Include="NewTurnover_CTStatus.aspx" />
+    <Content Include="NewTurnover_Review.aspx" />
+    <Content Include="NewTurnover_ChlPmpStatus.aspx" />
+    <Content Include="NewTurnover_WO_WChemAlam.aspx" />
+    <Content Include="NewTurnover_WO_WCWO.aspx" />
+    <Content Include="NewTurnover_WO_MaintSchedWO.aspx" />
+    <Content Include="NewTurnover_WO.aspx" />
+    <Content Include="NewTurnover_ChlStatus.aspx" />
+    <Content Include="NewTurnover.aspx" />
+    <Content Include="OldTurnover.aspx" />
+    <Content Include="Scripts\bootstrap-datetimepicker-4.17.47-edited.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-all.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\accessibility.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\accessibility.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\annotations-advanced.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\annotations-advanced.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\annotations.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\annotations.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\arrow-symbols.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\arrow-symbols.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\boost-canvas.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\boost-canvas.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\boost.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\boost.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\broken-axis.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\broken-axis.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\bullet.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\bullet.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\current-date-indicator.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\current-date-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\cylinder.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\cylinder.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\datagrouping.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\datagrouping.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\debugger.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\debugger.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\dependency-wheel.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\dependency-wheel.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\dotplot.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\dotplot.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drag-panes.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drag-panes.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\draggable-points.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\draggable-points.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\export-data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\export-data.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\full-screen.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\full-screen.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel3d.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\gantt.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\gantt.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\grid-axis.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\grid-axis.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\histogram-bellcurve.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\histogram-bellcurve.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\item-series.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\item-series.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\networkgraph.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\networkgraph.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\offline-exporting.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\offline-exporting.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\oldie-polyfills.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\oldie-polyfills.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\oldie.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\oldie.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\organization.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\organization.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\overlapping-datalabels.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\overlapping-datalabels.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\parallel-coordinates.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\parallel-coordinates.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pareto.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pareto.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pathfinder.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pathfinder.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pattern-fill.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pattern-fill.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\price-indicator.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\price-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pyramid3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\pyramid3d.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sankey.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sankey.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\series-label.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\series-label.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sonification.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sonification.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\static-scale.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\static-scale.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\stock-tools.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\stock-tools.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\stock.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\stock.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\streamgraph.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\streamgraph.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sunburst.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\sunburst.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\tilemap.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\tilemap.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\timeline.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\timeline.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\treegrid.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\treegrid.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\treemap.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\treemap.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\variable-pie.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\variable-pie.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\variwide.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\variwide.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\vector.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\vector.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\venn.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\venn.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\windbarb.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\windbarb.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\wordcloud.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\wordcloud.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\xrange.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\xrange.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-blue.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-green.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-unica.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\gray.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid-light.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\sand-signika.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\skies.js" />
+    <Content Include="Scripts\hoverIntent.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\loader.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\superfish.min.js" />
+    <Content Include="Scripts\supersubs.js" />
+    <Content Include="SubmissionReport.aspx" />
+    <Content Include="superfish_example.html" />
+    <Content Include="TestChart.aspx" />
+    <Content Include="testheaders.aspx" />
+    <Content Include="Web.sitemap" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\magnifier.js" />
+    <Content Include="Scripts\magnify.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\dhhs_logo_black.eps" />
+    <Content Include="Images\NIH_Master_Logo_2Color-EPS.eps" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\override.css.map" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmKPICalculation.cs" />
+    <Compile Include="AnswerPopup.aspx.cs">
+      <DependentUpon>AnswerPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnswerPopup.aspx.designer.cs">
+      <DependentUpon>AnswerPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CUPDocumentUpload.aspx.cs">
+      <DependentUpon>CUPDocumentUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CUPDocumentUpload.aspx.designer.cs">
+      <DependentUpon>CUPDocumentUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FuelLog.aspx.cs">
+      <DependentUpon>FuelLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FuelLog.aspx.designer.cs">
+      <DependentUpon>FuelLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WaterTreatmentLog.aspx.cs">
+      <DependentUpon>WaterTreatmentLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WaterTreatmentLog.aspx.designer.cs">
+      <DependentUpon>WaterTreatmentLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HVGLog.aspx.cs">
+      <DependentUpon>HVGLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HVGLog.aspx.designer.cs">
+      <DependentUpon>HVGLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EngineeringLog.aspx.cs">
+      <DependentUpon>EngineeringLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EngineeringLog.aspx.designer.cs">
+      <DependentUpon>EngineeringLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadHtml.aspx.cs">
+      <DependentUpon>LoadHtml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadHtml.aspx.designer.cs">
+      <DependentUpon>LoadHtml.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadHTML_Old.aspx.cs">
+      <DependentUpon>LoadHTML_Old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadHTML_Old.aspx.designer.cs">
+      <DependentUpon>LoadHTML_Old.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAttachment.aspx.cs">
+      <DependentUpon>ViewAttachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAttachment.aspx.designer.cs">
+      <DependentUpon>ViewAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WTBenchMarkingReport.aspx.cs">
+      <DependentUpon>WTBenchMarkingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WTBenchMarkingReport.aspx.designer.cs">
+      <DependentUpon>WTBenchMarkingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuxBenchMarkingReport.aspx.cs">
+      <DependentUpon>AuxBenchMarkingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuxBenchMarkingReport.aspx.designer.cs">
+      <DependentUpon>AuxBenchMarkingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChillerBenchMarkingReport.aspx.cs">
+      <DependentUpon>ChillerBenchMarkingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChillerBenchMarkingReport.aspx.designer.cs">
+      <DependentUpon>ChillerBenchMarkingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeRole.aspx.cs">
+      <DependentUpon>ChangeRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeRole.aspx.designer.cs">
+      <DependentUpon>ChangeRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckStatusAll.aspx.cs">
+      <DependentUpon>CheckStatusAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckStatusAll.aspx.designer.cs">
+      <DependentUpon>CheckStatusAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help_WildCard.aspx.cs">
+      <DependentUpon>Help_WildCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help_WildCard.aspx.designer.cs">
+      <DependentUpon>Help_WildCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LiveLogSearch.aspx.cs">
+      <DependentUpon>LiveLogSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LiveLogSearch.aspx.designer.cs">
+      <DependentUpon>LiveLogSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_Acknowledgement.aspx.cs">
+      <DependentUpon>NewTurnover_Acknowledgement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_Acknowledgement.aspx.designer.cs">
+      <DependentUpon>NewTurnover_Acknowledgement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_Rounds.aspx.cs">
+      <DependentUpon>NewTurnover_Rounds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_Rounds.aspx.designer.cs">
+      <DependentUpon>NewTurnover_Rounds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BenchMarkingReport.aspx.cs">
+      <DependentUpon>BenchMarkingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BenchMarkingReport.aspx.designer.cs">
+      <DependentUpon>BenchMarkingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportNotSubmitted.aspx.cs">
+      <DependentUpon>ReportNotSubmitted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportNotSubmitted.aspx.designer.cs">
+      <DependentUpon>ReportNotSubmitted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_LOTO.aspx.cs">
+      <DependentUpon>NewTurnover_LOTO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_LOTO.aspx.designer.cs">
+      <DependentUpon>NewTurnover_LOTO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_Selector.aspx.cs">
+      <DependentUpon>NewTurnover_Selector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_Selector.aspx.designer.cs">
+      <DependentUpon>NewTurnover_Selector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_CriticalAlm.aspx.cs">
+      <DependentUpon>NewTurnover_CriticalAlm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_CriticalAlm.aspx.designer.cs">
+      <DependentUpon>NewTurnover_CriticalAlm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OldTurnoverEdit.aspx.cs">
+      <DependentUpon>OldTurnoverEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldTurnoverEdit.aspx.designer.cs">
+      <DependentUpon>OldTurnoverEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowChart.aspx.cs">
+      <DependentUpon>ShowChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowChart.aspx.designer.cs">
+      <DependentUpon>ShowChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckStatus.aspx.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckStatus.aspx.designer.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chillers.aspx.cs">
+      <DependentUpon>Chillers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chillers.aspx.designer.cs">
+      <DependentUpon>Chillers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomErrorPage.aspx.cs">
+      <DependentUpon>CustomErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomErrorPage.aspx.designer.cs">
+      <DependentUpon>CustomErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DBPIController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentStatus.aspx.cs">
+      <DependentUpon>EquipmentStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EquipmentStatus.aspx.designer.cs">
+      <DependentUpon>EquipmentStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GSSTest.aspx.cs">
+      <DependentUpon>GSSTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GSSTest.aspx.designer.cs">
+      <DependentUpon>GSSTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.aspx.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainPage.aspx.designer.cs">
+      <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_ROBlrStatus.aspx.cs">
+      <DependentUpon>NewTurnover_ROBlrStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_ROBlrStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_ROBlrStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_BlrStatus.aspx.cs">
+      <DependentUpon>NewTurnover_BlrStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_BlrStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_BlrStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_FreeCoStatus.aspx.cs">
+      <DependentUpon>NewTurnover_FreeCoStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_FreeCoStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_FreeCoStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_CTStatus.aspx.cs">
+      <DependentUpon>NewTurnover_CTStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_CTStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_CTStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_Review.aspx.cs">
+      <DependentUpon>NewTurnover_Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_Review.aspx.designer.cs">
+      <DependentUpon>NewTurnover_Review.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_ChlPmpStatus.aspx.cs">
+      <DependentUpon>NewTurnover_ChlPmpStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_ChlPmpStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_ChlPmpStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_WO_WChemAlam.aspx.cs">
+      <DependentUpon>NewTurnover_WO_WChemAlam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_WO_WChemAlam.aspx.designer.cs">
+      <DependentUpon>NewTurnover_WO_WChemAlam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_WO_WCWO.aspx.cs">
+      <DependentUpon>NewTurnover_WO_WCWO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_WO_WCWO.aspx.designer.cs">
+      <DependentUpon>NewTurnover_WO_WCWO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_WO_MaintSchedWO.aspx.cs">
+      <DependentUpon>NewTurnover_WO_MaintSchedWO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_WO_MaintSchedWO.aspx.designer.cs">
+      <DependentUpon>NewTurnover_WO_MaintSchedWO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_WO.aspx.cs">
+      <DependentUpon>NewTurnover_WO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_WO.aspx.designer.cs">
+      <DependentUpon>NewTurnover_WO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover_ChlStatus.aspx.cs">
+      <DependentUpon>NewTurnover_ChlStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover_ChlStatus.aspx.designer.cs">
+      <DependentUpon>NewTurnover_ChlStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTurnover.aspx.cs">
+      <DependentUpon>NewTurnover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTurnover.aspx.designer.cs">
+      <DependentUpon>NewTurnover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OldTurnover.aspx.cs">
+      <DependentUpon>OldTurnover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldTurnover.aspx.designer.cs">
+      <DependentUpon>OldTurnover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShiftTurnoverNoHeader.Master.cs">
+      <DependentUpon>ShiftTurnoverNoHeader.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShiftTurnoverNoHeader.Master.designer.cs">
+      <DependentUpon>ShiftTurnoverNoHeader.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftTurnover.Master.cs">
+      <DependentUpon>ShiftTurnover.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShiftTurnover.Master.designer.cs">
+      <DependentUpon>ShiftTurnover.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SubmissionReport.aspx.cs">
+      <DependentUpon>SubmissionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmissionReport.aspx.designer.cs">
+      <DependentUpon>SubmissionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestChart.aspx.cs">
+      <DependentUpon>TestChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestChart.aspx.designer.cs">
+      <DependentUpon>TestChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testheaders.aspx.cs">
+      <DependentUpon>testheaders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testheaders.aspx.designer.cs">
+      <DependentUpon>testheaders.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\wizbuttons.zip" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="ShiftTurnover.Master" />
+    <Content Include="ShiftTurnoverNoHeader.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShiftTurnover.BL\ShiftTurnover.BL.csproj">
+      <Project>{6637ae9e-bcb6-4c9a-ba79-21003c1123d9}</Project>
+      <Name>ShiftTurnover.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShiftTurnover.Components\ShiftTurnover.Components.csproj">
+      <Project>{ae1b5a57-9a96-4e86-9107-78273985dba6}</Project>
+      <Name>ShiftTurnover.Components</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\fonts\" />
+    <Folder Include="Documents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61864</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51580/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

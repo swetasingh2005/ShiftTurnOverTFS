@@ -1,0 +1,813 @@
+/* ________________ general ________________ */
+
+/* 
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 76%;
+	color: #333; 
+
+	background-color: #fff;
+}
+        changed for new site - copied from default.css
+
+*/
+
+body {
+    font-family: arial,helvetica,sans-serif;
+    font-size: 10pt;
+    color: #676767;
+    margin: 0px;
+    padding: 0;
+    height: 100%;
+}
+
+#mpage {
+    background: #fff;
+}
+
+    #mpage > form {
+        margin: 0 auto;
+        /* width: 985px; */
+        background: #fff;
+        min-height: 700px;
+        position: relative;
+        padding: 0 0 50px 0;
+        border: 10px solid #333;
+        border-width: 0 10px 0 10px;
+    }
+
+#mpagenoborder {
+    background: #fff;
+}
+
+    #mpagenoborder > form {
+        margin: 0 auto;
+        /* width: 985px; */
+        background: #fff;
+        min-height: 700px;
+        position: relative;
+        padding: 0 0 50px 0;
+    }
+
+#header {
+    padding: 15px 0 10px 10px;
+    background: #f9f9f9 url("../Images/DTR_red.png") repeat-x top left;
+    position: relative;
+}
+
+    #header #title_logo {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+    }
+
+    #header h1 {
+        font-weight: normal;
+        display: inline;
+        margin: 0px;
+        padding: 0 0 0 100px;
+        color: #9A0000;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        background: #f9f9f9;
+    }
+
+        #header h1 a {
+            color: #9A0000;
+            text-decoration: none;
+        }
+
+
+    #header div {
+        font-size: 14px;
+        color: #555555;
+        padding: 0 0 0 100px;
+        margin: 0 0;
+        background: #f9f9f9;
+        font-weight: bold;
+    }
+
+    #header .titlelogo {
+        padding: 12px 10px 12px 0px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #header .division {
+        font-size: 16px;
+        color: #5d6878;
+        font-weight: normal;
+    }
+
+#mainMenu {
+    padding: 73px 0 0 0;
+    background: #b3172c url("../Images/DTR_Banner_logo_red.png") no-repeat top center;
+    margin: 0;
+}
+
+#banner {
+    padding: 73px 0 0 0;
+    /*height: 73px;*/
+    background: #b3172c url("../Images/DTR_Banner_logo_red.png") no-repeat top left;
+    margin: 0;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: #333;
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+}
+
+    #footer a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+
+    /* End copy from default.css */
+
+
+
+
+a:link {
+	color: #4949fb;
+}
+a:visited {
+	color: #669;
+}
+h1 {
+    text-align: center;
+    font: bold 2em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    color: #9A0000; /* #936; */
+    line-height: 1.3em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.hspace {
+    text-align: left;
+    font: bold 1.5em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    color: #9A0000; /* #936; */
+    line-height: 1.0em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hspecial {
+    text-align: left;
+    font: bold 1.0em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    color: #9A0000; /* #936; */
+    line-height: 1.0em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hstrong {
+    text-align: left;
+    font: bold 1.0em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    color: #000000; /* #936; */
+    line-height: 1.0em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.printtext {
+    font: bold 1.3em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    color: black; /* #936; */
+    line-height: 1.2em;
+}
+
+.printtextv {
+    font: bold 1.3em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.3em;
+}
+
+.printtextt {
+    font: 1.3em Myriad, Myriad Web, Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.2em;
+}
+
+.pgbreakbefore {
+    page-break-before: always;
+}
+
+.pgbreakafter {
+    page-break-after: always;
+}
+
+@media all {
+    .page-break {
+        display: none;
+    }
+}
+
+@media allx {
+    .page-break {
+        display: block;
+        page-break-before: always;
+    }
+}
+
+@media print {
+    .page-break {
+        display: block;
+        page-break-before: always;
+    }
+}
+
+p {
+	margin-top: 0px;
+	margin-bottom: 0.8em;
+	font-size: 1em;
+	line-height: 1.3em;
+}
+img {
+	border: none;
+}
+
+.scrollbox {
+	overflow: scroll;
+	height: 28em;
+	width: 600px;
+	padding: 10px;
+	margin: auto;
+	margin-bottom: 16px;
+	border: 1px solid #999;
+}
+.nonscrollbox {
+	width: 600px;
+	padding: 10px;
+	margin: auto;
+	margin-bottom: 16px;
+	border: 1px solid #999;
+}
+/* ________________ CONTAINERS ________________ */
+
+.hide {
+ 	position: absolute;
+ 	left: -999px;
+ 	width: 1px;
+}
+/* changed above
+#banner {
+	height: 76px;
+	background: #555484 url("../Images/banner_bkgnd.jpg") no-repeat top left;
+}
+*/
+
+
+#bannerutilities {
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    color:  #9A0000; /*color: #ccf; */
+}
+    #bannerutilities a:link, #bannerutilities a:visited {
+        color: #b3172c;
+    }
+#bannerutilities p {
+	margin-top: 0px;
+	margin-bottom: 6px;
+    border: none;
+}
+#bannerutilities strong {
+	color: #999;
+}
+    #bannerutilities ul {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 0.9em;
+        margin: 0;
+        padding: 0;
+    }
+    #bannerutilities li {
+        list-style-type: none;
+        display: inline;
+        padding-right: 9px;
+        padding-left: 6px;
+        border-right: solid #99c 1px;
+        color: #999;
+    }
+/* Fix IE. Hide from IE Mac \*/
+* html #bannerutilities li { padding-right: 4px; padding-left: 8px; }
+/* End */
+#bannerutilities li#last {
+	border: none;
+	padding-right: 0px;
+}
+#bannerutilities a:link {
+	color: #b3172c;
+}
+#bannerShiftTurnover {
+	padding-top: 7px;
+	padding-bottom: 9px;
+	padding-left: 12px;
+}
+#bannertitle {
+	margin-bottom: 6px;
+	margin-left: 8px;
+}
+#globaltabs {
+	position: absolute;
+	left: 12px;
+	top: 54px;
+}
+#globaltabs a {
+	margin-right: 2px;
+}
+#subnav {
+	background-color: #9393da;
+	font: normal 1.0em Arial, Helvetica, sans-serif;
+	/* font-weight: bold; */
+	margin-bottom: 0px;
+}
+#subnav ul {
+	margin: 0;
+	margin-left: 4px;
+	padding: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+#subnav li {
+	color: #C1C1F9;
+	list-style-type: none;
+	display: inline;
+	padding-right: 11px;
+	padding-left: 8px;
+	border-right: solid #B5B5DB 1px;
+}
+/* Fix IE. Hide from IE Mac \*/
+* html #subnav li { padding-right: 8px; padding-left: 10px; }
+/* End */
+#subnav a:link, #subnav a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+#subnav a:hover {
+	text-decoration: underline;
+}
+#subnav li.current, #subnav li.current a:link, #subnav li.current a:visited {
+	color: #000;
+}
+ul.showoptions {
+	font: normal 1.0em Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	margin: 0;
+	margin-bottom: 2px;
+	margin-left: -6px;
+	padding: 0;
+}
+ul.showoptions li {
+	list-style-type: none;
+	display: inline;
+	padding-right: 9px;
+	padding-left: 6px;
+	border-right: solid #999 1px;
+}
+/* Fix IE. Hide from IE Mac \*/
+* html ul.showoptions li { padding-right: 4px; padding-left: 8px; }
+/* End */
+ul.showoptions a:link, ul.showoptions a:visited {
+	color: #4949fb;
+}
+ul.showoptions li#last {
+	border: none;
+}
+#maincontent {
+	width: 100%;
+	border: none;
+}
+#widecolumn {
+	padding: 18px 12px 12px 12px;
+	background-color: #fff;
+}
+#filerstatus {
+	font: bold 1.0em Arial, Helvetica, sans-serif;
+	margin-bottom: 16px;
+}
+#filerstatus #duedate {
+	color: #f00;
+}
+#wizardbuttons {
+	text-align: center;
+	margin-bottom: 0px;
+	white-space: nowrap;
+}
+.instructions {
+	font: 0.9em Verdana, Arial, Helvetica, sans-serif;
+	line-height: 1.4em;
+	color: #333;
+}
+
+
+
+.instructionstable { 
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1.4em;
+}
+.instructionstable td { 
+	padding: 0;
+	border-top: solid 1px #aaa;
+	border-bottom: solid 1px #aaa;
+}
+.instructionstable td.report { 
+	width: 50%;
+	border-left: solid 1px #aaa;
+	border-right: solid 1px #aaa;
+}
+.instructionstable td.noreport { 
+	width: 50%;
+	border-right: solid 1px #aaa;
+}
+.instructionstable h2 { 
+	font-size: 1em;
+	padding: 0.4em 9px 0.4em 9px;
+	margin: 0;
+	margin-bottom: 0.8em;
+	background-color: #e5e5e5;
+}
+.instructionstable p { 
+	padding-left: 13px;
+	padding-right: 13px;
+}
+.instructionstable ul { 
+	padding-left: 13px;
+	padding-right: 13px;
+	margin-top: 0;
+	margin-left: 13px;
+}
+.instructionstable ol { 
+	padding-left: 13px;
+	padding-right: 13px;
+	margin-top: 0;
+	margin-left: 13px;
+}
+.instructionstable td.reportselect { 
+	padding: 9px;
+	background-color: #ffc;
+	border-left: solid 1px #aaa;
+	border-right: solid 1px #aaa;
+}
+.instructionstable td.noreportselect { 
+	padding: 9px;
+	background-color: #ffc;
+	border-right: solid 1px #aaa;
+}
+
+
+
+.examples { 
+	border-collapse: collapse;
+	width: 100%;
+	color: #936;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+.examples td { 
+	padding: 0;
+}
+.examples h2 { 
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 0.3em;
+}
+.examples p {
+}
+.examples ul { 
+	padding-left: 13px;
+	padding-right: 13px;
+	margin: 0;
+	margin-left: 5px;
+}
+.examples ol { 
+	padding-left: 13px;
+	padding-right: 13px;
+	margin: 0;
+	margin-left: 5px;
+}
+
+
+
+.reportingperiod {
+	font-weight: bold;
+}
+.datetimestamp {
+	color: #666;
+	font-style: italic;
+}
+table.listing {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px #555 solid;
+	border-right: none;
+	border-bottom: none;
+	margin-bottom: 12px;
+}
+table.listinggray {
+	border-collapse: collapse;
+	color: #666;
+	width: 100%;
+	border: 1px #999 solid;
+	border-right: none;
+	border-bottom: none;
+	margin-bottom: 12px;
+}
+table.tableheader {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px #555 solid;
+	border-bottom: none;
+}
+table td.tableheader, table.tableheader td {
+	background-color: #777;
+	color: #fff;
+	font-weight: bold;
+}
+table td.tableheader a:link, table td.tableheader a:visited {
+	color: #fff;
+}
+table.listing tr, table.listinggray tr, table.detail tr, table.tableheader tr {
+	text-align: left;
+}
+table.listing tr.columnhead, table.detail tr.columnhead, table.listing td.columnheadsort {
+	background-color: #ddd;
+	text-align: center;
+	font-weight: bold;
+}
+table.listinggray tr.columnhead, table.listinggray td.columnheadsort {
+	background-color: #eee;
+	text-align: center;
+	font-weight: bold;
+}
+table.listing tr.columnhead a:visited, table.detail tr.columnhead a:visited {
+	color: #4949fb;
+}
+table.listing td.columnheadsort {
+	background-color: #ccc;
+}
+table.listing td, table.detail td {
+	padding: 4px;
+	border-right: 1px #555 solid;
+	border-bottom: 1px #555 solid;
+}
+table.listinggray td {
+	padding: 4px;
+	border-right: 1px #999 solid;
+	border-bottom: 1px #999 solid;
+}
+table.tablehead td {
+	border-right: 1px #555 solid;
+}
+table.detail {
+	border-collapse: collapse;
+	border: 1px #555 solid;
+	border-right: none;
+	border-bottom: none;
+	margin-bottom: 6px;
+}
+table.comment td {
+	width: auto;
+	border: none;
+	padding-right: 4px;
+}
+table.employeesearch {
+	margin-top: 18px;
+}
+table.wiznavbuttons {
+	width: 100%;
+	border: none;
+}
+table.wiznavbuttons td {
+	padding-top: 6px;
+	padding-bottom: 4px;
+}
+table.wiznavbuttons a {
+	padding-left: 8px;
+}
+table.wiznavbuttons .left {
+	width: 25%;
+}
+table.wiznavbuttons .left a {
+	padding-left: 1px;
+}
+table.wiznavbuttons .center {
+	width: 50%;
+	text-align: center;
+}
+table.wiznavbuttons .right {
+	width: 25%;
+	text-align: right;
+}
+#narrowcolumn {
+	width: 200px;
+	background-color: #e5e5e5;
+}
+#commonquestions {
+	width: 200px;
+	padding-bottom: 5px;
+	background-color: #e5e5e5;
+}
+#commonquestions p#header {
+	font-weight: bold;
+	color: #fff;
+	background-color: #666;
+	padding: 4px 10px 4px 10px;
+	margin-top: 0px;
+	margin-bottom: 12px;
+}
+#commonquestions ul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-left: 13px;
+	margin-bottom: 0px;
+	padding-left: 13px;
+}
+#commonquestions li {
+	margin-top: 0px;
+	margin-bottom: 0.8em;
+}
+#commonquestions a:link, #commonquestions a:visited {
+	color: #555;
+}
+#commonquestions a:hover {
+	text-decoration: underline;
+	color: #4949fb;
+}
+#questionPopUp {
+	margin: 20px;
+}
+.closewindow{
+	background-color: #ccc;
+	padding: 6px;
+	padding-bottom: 9px;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+}
+.closewindow a:link, .closewindow a:visited {
+	color: #4949fb;
+}
+.alert {
+	font-weight: bold;
+	color: #f00;
+}
+ul.alert {
+	font-weight: bold;
+	color: #f00;
+	list-style-type: none;
+	margin-top: 12px;
+	margin-left: 0px;
+	padding-left: 0px;
+	padding-bottom: 4px;
+}
+ul.alert li {
+	background: transparent url("../images/icon_alert.gif") no-repeat top left; 
+	padding-left: 20px;
+	padding-bottom: 0.2em;
+	margin-bottom: 0.7em;
+}
+ul.alert li.required {
+	background: transparent url("../images/icon_required_big.gif") no-repeat top left; 
+	padding-left: 20px;
+	padding-bottom: 0.2em;
+	margin-bottom: 0.7em;
+}
+.redtext {
+	color: #f00;
+}
+table.twocolumn {
+	width: 100%;
+}
+table.twocolumn td.leftcolumn {
+	width: 50%;
+	padding-right: 12px;
+}
+table.twocolumn td.rightcolumn {
+	width: 50%;
+}
+legend {
+	font-weight: bold;
+	color: #333;
+}
+fieldset {
+	margin-bottom: 12px;
+}
+.formindent {
+	padding-left: 21px;
+}
+#schedule {
+	position: relative;
+	top: -1em;
+	text-align: center;
+	font: normal 1em Verdana, Arial, Helvetica, sans-serif;
+	color: #936;
+	line-height: 2em;
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+/* redefined on top
+#footer { 
+	clear: both;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	text-align: center;
+	color: #eee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #aaa;
+	height: 15px;
+}
+
+*/
+
+#footer ul {
+	margin: 0;
+	margin-left: 4px;
+	padding: 0;
+}
+#footer li {
+	list-style-type: none;
+	display: inline;
+	padding-right: 11px;
+	padding-left: 8px;
+	border-right: solid #ddd 1px;
+}
+/* Fix IE. Hide from IE Mac \*/
+* html #footer li { padding-right: 8px; padding-left: 10px; }
+/* End */
+#footer li#last {
+	border: none;
+}
+#footer a:link, #footer a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+ul.alert li.info 
+{
+	background: transparent url("../images/icon_possibleduplicate2.gif") no-repeat top left; 
+	padding-left: 20px;
+	padding-bottom: 0.2em;
+	margin-bottom: 0.7em;
+	color: Black;
+	font-weight: normal;
+}
+.LinkButtonImage
+{
+	background: url("../Images/wiznavbutton_submit.gif");
+	
+}
+#reviewlist {
+	text-align:center;
+	margin:1.5em;
+}
+table.comments {
+	border-collapse: collapse;
+	width: 100%;
+	border: none;
+	margin-bottom: 0;
+}
+table.comments td {
+	border: none;
+}
+
+table.listing ul {
+	margin: 0;
+	padding-left: 1.5em;
+}
+
+#overlay {
+        position: fixed;
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+.hide2 {
+        display: none;
+    }
+
+.header2 {
+    font-weight: bold;
+}
+
+

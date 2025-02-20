@@ -1,0 +1,353 @@
+﻿<%@ Page Title="Shift Turnover Fuel Log Record" Language="C#" MasterPageFile="~/ShiftTurnover.Master" AutoEventWireup="true" CodeBehind="FuelLog.aspx.cs" Inherits="ShiftTurnover.FuelLog" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <script type="text/javascript">
+        function confirmBox() {
+            return window.confirm("Are you sure you want to delete this Fuel Log entry?");
+        }
+
+      </script>  
+    <script type="text/javascript">
+        function confirmBox2() {
+            return window.confirm("The selected entry and attached document will be deleted permanently! Are you sure you want to delete this entry?");
+        }
+    </script>
+</asp:Content>
+  
+<asp:Content ID="Content14" ContentPlaceHolderID="cph_instructions" runat="server">
+     <div runat="server" id="divExisting" class="instructions">
+        <h1>
+            <asp:Label runat="server" ID="lblPreShift" Font-Size="Medium" ForeColor="Black"></asp:Label></h1>
+
+        <h1>
+            <asp:Label runat="server" ID="lblMShift" Font-Size="Medium" ForeColor="Black"></asp:Label></h1>
+        <strong>Fuel Log Record Instructions</strong>: Enter Event Date/Time and Details below and click the Submit button. 
+         
+    </div>
+    <p>
+        &nbsp;<br />
+    </p>
+</asp:Content>
+<asp:Content ID="Content15" ContentPlaceHolderID="cph_error" runat="server">
+        <asp:Table ID="tblConfirm" runat="server" CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0" BorderWidth="0" Width="100%" HorizontalAlign="Center">
+        <asp:TableRow>
+            <asp:TableCell HorizontalAlign="Center">
+                <asp:Label runat="server" CssClass="alert" ID="lblConfirm" Visible="false" />
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+</asp:Content>
+<asp:Content ID="Content16" ContentPlaceHolderID="cph_main" runat="server">
+     <asp:Table ID="tblLiveLog" runat="server" CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0"  
+         BorderWidth="0" Width="860" HorizontalAlign="Center" >
+
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Panel runat="server" ID="pnlLiveLog">
+                    <fieldset class="fs-border">
+                        <legend class="fs-border">Fuel Log Record Submission Form</legend>
+                        <asp:Table ID="tblSelectSection" runat="server"  CellPadding="20" CellSpacing="4" BackColor="#e2e2e2" BorderWidth="1">
+                             <asp:TableRow>
+                            <asp:TableCell   ColumnSpan="3">
+                            <asp:Label ID="lblLiveLogID1" runat="server" Font-Bold="true" Text="Enter New Fuel Log" ForeColor="Green" ></asp:Label>
+                             <asp:Label ID="lblLiveLogID" runat="server" Font-Bold="true"   ForeColor="Green" ></asp:Label>
+                            </asp:TableCell>
+                                 <asp:TableCell ></asp:TableCell>
+                                 <asp:TableCell ></asp:TableCell>
+                             </asp:TableRow>
+                            <asp:TableRow>
+                            <asp:TableCell   BorderWidth="0" >
+                                     <asp:Label Font-Bold="true" runat="server">Date/Time:<img height="12" alt="Required" src="Images/icon_required.gif"
+                                        width="13" />
+                                   </asp:Label>
+
+                                    <asp:TextBox ID="txtDateTime" TabIndex="4" runat="server" 
+                                        Width="250px" TextMode="DateTimeLocal" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert"
+                                        ValidationGroup="vgLiveLog" ControlToValidate="txtDateTime"
+                                        ErrorMessage="Required" ID="rfvYN" runat="server"></asp:RequiredFieldValidator>
+                           </asp:TableCell>
+                            <asp:TableCell    BorderWidth="0" >
+                                       <asp:Label Font-Bold="true" runat="server">Gallon:<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                    <asp:TextBox ID="txtGallon" TabIndex="11" runat="server" CssClass="form-control" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert" ValidationGroup="vgLiveLog" ControlToValidate="txtGallon" ErrorMessage="Gallon is Required" ID="RequiredFieldValidator1" runat="server"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator runat="server" Font-Bold="true" ForeColor="Red" ErrorMessage="Number with Decimal Only" ID="txtregpre" ValidationGroup="Insert"
+                       ControlToValidate="txtGallon" ValidationExpression="^\d+\.\d{0,2}$"></asp:RegularExpressionValidator>
+                                    </asp:TableCell>
+                            <asp:TableCell  BorderWidth="0">
+                                       <asp:Label Font-Bold="true" runat="server">Driver:<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                    <asp:TextBox ID="txtDriver" TabIndex="11" runat="server"  CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert" ValidationGroup="vgLiveLog" ControlToValidate="txtDriver" ErrorMessage="Driver is Required" ID="RequiredFieldValidator2" runat="server"></asp:RequiredFieldValidator>
+                                    
+                                    </asp:TableCell>
+                                
+                                </asp:TableRow>
+
+                             <asp:TableRow>
+                            <asp:TableCell  BorderWidth="0">
+                                     <asp:Label Font-Bold="true" runat="server">Supplier:<img height="12" alt="Required" src="Images/icon_required.gif"
+                                        width="13" />
+                                   </asp:Label>
+
+                                    <asp:TextBox ID="txtSupplier" TabIndex="4" runat="server" 
+                                         CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert"
+                                        ValidationGroup="vgLiveLog" ControlToValidate="txtSupplier"
+                                        ErrorMessage="Required" ID="RequiredFieldValidator3" runat="server"></asp:RequiredFieldValidator>
+                           </asp:TableCell>
+                            <asp:TableCell BorderWidth="0" >
+                                       <asp:Label Font-Bold="true" runat="server">Bill #:<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                    <asp:TextBox ID="txtBillNumber" TabIndex="11" runat="server" CssClass="form-control" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert" ValidationGroup="vgLiveLog" ControlToValidate="txtBillNumber" ErrorMessage="Bill Number is Required" ID="RequiredFieldValidator5" runat="server"></asp:RequiredFieldValidator>
+                                    
+                                    </asp:TableCell>
+                            <asp:TableCell  BorderWidth="0">
+                                       <asp:Label Font-Bold="true" runat="server">Order #:<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                    <asp:TextBox ID="txtOrderNumber" TabIndex="11" runat="server"  CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator Display="Dynamic" CssClass="alert" ValidationGroup="vgLiveLog" ControlToValidate="txtOrderNumber" ErrorMessage="Order Number is Required" ID="RequiredFieldValidator6" runat="server"></asp:RequiredFieldValidator>
+                                    
+                                    </asp:TableCell>
+                                
+                                </asp:TableRow>
+
+                            <asp:TableRow BackColor="#ffffe3" runat="server" ID="trDocument" Visible="true">
+            <asp:TableCell ColumnSpan="3">
+                <asp:Table ID="tblUploaded" runat="server" 
+    CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0"  
+         BorderWidth="0"  HorizontalAlign="Left">
+                    <asp:TableRow>
+                                <asp:TableCell  >
+                                    <asp:Table ID="tblAttach" runat="server"  CssClass="wiznavbuttons"  
+                                        CellPadding="20" CellSpacing="0" BorderWidth="0"   HorizontalAlign="Left">
+        <asp:TableRow runat="server" ID="trUpload" >
+            <asp:TableCell>
+                <fieldset class="fs-border">
+                    <legend class="fs-border">Upload Document(s) 
+                         
+                    </legend>
+                   
+                    <asp:Label runat="server" ID="lblStatus" Text="" CssClass="alert" />
+                    <asp:Table ID="tblDoc" runat="server" CellPadding="20" CellSpacing="4" BorderWidth="0" Width="650px"  >
+                       
+                        <asp:TableRow>
+                            <asp:TableCell VerticalAlign="Top">
+                                <asp:Label Font-Bold="true" runat="server"> Upload Before Ticket :<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" Display="Dynamic" ValidationGroup="vgAttach" ControlToValidate="fileUpload" ErrorMessage="Please choose a file to upload" runat="server" CssClass="alert"></asp:RequiredFieldValidator>
+                                <br />
+                                <asp:FileUpload ID="fileUpload" Width="350px"  TabIndex="14" AllowMultiple="false" CssClass="form-control" runat="server" Font-Bold="true" />
+                            </asp:TableCell>
+                            <asp:TableCell VerticalAlign="Bottom">
+                               
+                                </asp:TableCell>
+                                <asp:TableCell VerticalAlign="Bottom">
+                           <asp:Button ID="btnCancel" TabIndex="15" runat="server" CssClass="form-control" ValidationGroup="vgAttach"
+                                 CausesValidation="false"   ToolTip="Clear uploaded document"  Text="Cancel Upload" OnClick="btnCancel_Click" BackColor="Green" ForeColor="White" />
+                                </asp:TableCell>
+                        </asp:TableRow>
+                         <asp:TableRow>
+                            <asp:TableCell VerticalAlign="Top">
+                                <asp:Label Font-Bold="true" runat="server"> Upload After Ticket :<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" Display="Dynamic" ValidationGroup="vgAttach" ControlToValidate="fileUpload2" ErrorMessage="Please choose a file to upload" runat="server" CssClass="alert"></asp:RequiredFieldValidator>
+                                <br />
+                                <asp:FileUpload ID="fileUpload2" Width="350px"  TabIndex="14" AllowMultiple="false" CssClass="form-control" runat="server" Font-Bold="true" />
+                            </asp:TableCell>
+                            <asp:TableCell VerticalAlign="Bottom">
+                               
+                                </asp:TableCell>
+                                <asp:TableCell VerticalAlign="Bottom">
+                           <asp:Button ID="btn1Cancel" TabIndex="15" runat="server" CssClass="form-control" ValidationGroup="vgAttach"
+                                 CausesValidation="false"   ToolTip="Clear uploaded document"  Text="Cancel Upload" OnClick="btn1Cancel_Click" BackColor="Green" ForeColor="White" />
+                                </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell VerticalAlign="Top">
+                                <asp:Label Font-Bold="true" runat="server"> Upload Bill of Lading:<img height="12" alt="Required" src="Images/icon_required.gif" width="13" /></asp:Label>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Display="Dynamic" ValidationGroup="vgAttach" ControlToValidate="fileUpload" ErrorMessage="Please choose a file to upload" runat="server" CssClass="alert"></asp:RequiredFieldValidator>
+                                <br />
+                                <asp:FileUpload ID="upBillOfLanding" Width="350px" TabIndex="14" AllowMultiple="false" CssClass="form-control" runat="server" Font-Bold="true" />
+                            </asp:TableCell>
+                            <asp:TableCell VerticalAlign="Bottom">
+                              
+                                </asp:TableCell>
+                                <asp:TableCell VerticalAlign="Bottom">
+                           <asp:Button ID="btnCancelBillOfLanding" TabIndex="15" runat="server" CssClass="form-control" ValidationGroup="vgAttach"
+                                 CausesValidation="false"   ToolTip="Clear uploaded document"  Text="Cancel Upload" OnClick="btnCancelBillOfLanding_Click" BackColor="Green" ForeColor="White" />
+                                </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+
+                </fieldset>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+                                </asp:TableCell>
+                                
+                            </asp:TableRow>
+        <asp:TableRow ID="trDoc" runat="server" Visible="false">
+            <asp:TableCell  Font-Bold="true">
+             <asp:Table ID="Table1" runat="server"  CssClass="wiznavbuttons"  
+                                        CellPadding="20" CellSpacing="0" BorderWidth="0"   HorizontalAlign="Left">
+        <asp:TableRow>
+            <asp:TableCell  BorderWidth="0"  HorizontalAlign="Left" >
+                
+                <asp:LinkButton ID="lnkUploadedDoc" runat="server" ToolTip="Click to view the document in a new window"  OnClick="lnkUploadedDoc_Click"   Text=" Before Ticket   "></asp:LinkButton> 
+                <asp:ImageButton ID="imgDeleteDoc" runat="server" ImageUrl="~/Images/Delete.png" Width="25px" Height="25px" OnClick="imgDeleteDoc_Click" />
+            </asp:TableCell>
+      </asp:TableRow>
+                  <asp:TableRow>
+            <asp:TableCell  BorderWidth="0"  HorizontalAlign="Left" >
+                
+                <asp:LinkButton ID="lnkUploadedDoc1" runat="server" 
+                    ToolTip="Click to view the document in a new window"
+                    OnClick="lnkUploadedDoc1_Click"  Text=" After Ticket   "></asp:LinkButton> 
+                <asp:ImageButton ID="imgDeleteDoc1" runat="server" ImageUrl="~/Images/Delete.png" Width="25px" Height="25px" OnClick="imgDeleteDoc1_Click" />
+            </asp:TableCell>
+      </asp:TableRow>
+                 <asp:TableRow>
+            <asp:TableCell  BorderWidth="0"  HorizontalAlign="Left" >
+                
+                <asp:LinkButton ID="lnkUploadedBillDoc" runat="server" ToolTip="Click to view the document in a new window"  OnClick="lnkUploadedBillDoc_Click"   Text="Bill Of Lading   "></asp:LinkButton> 
+                <asp:ImageButton ID="imgDeleteBill" runat="server" ImageUrl="~/Images/Delete.png" Width="25px" Height="25px" OnClick="imgDeleteBill_Click"/>
+            </asp:TableCell>
+      </asp:TableRow>
+                 </asp:Table>
+                </asp:TableCell>
+                 </asp:TableRow>
+    </asp:Table>
+                </asp:TableCell>
+                                 <asp:TableCell  Font-Bold="true">
+                                       
+                                    </asp:TableCell>
+                                 <asp:TableCell  Font-Bold="true">
+                                       
+                                    </asp:TableCell>
+             </asp:TableRow>
+                             <asp:TableRow>
+                                <asp:TableCell ColumnSpan="3">
+                                    <asp:Table ID="tblNavButtons" runat="server" CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0" BorderWidth="0" Width="570px" HorizontalAlign="Center">
+        
+                                        <asp:TableRow>
+            <asp:TableCell CssClass="left">
+
+            </asp:TableCell>
+            <asp:TableCell HorizontalAlign="center">
+                <asp:Button ID="btnSubmit" TabIndex="14" runat="server" CssClass="form-control" ToolTip="Submit the form " ValidationGroup="vgLiveLog" CausesValidation="true" Text="Submit" BackColor="#b3112c" ForeColor="White" Width="180px" Font-Bold="false" OnClick="btnSubmit_Click" />
+            </asp:TableCell>
+
+            <asp:TableCell HorizontalAlign="center">
+                
+            </asp:TableCell>
+            <asp:TableCell CssClass="right">
+              <asp:Button ID="btnReset" TabIndex="14" runat="server" CssClass="form-control" ValidationGroup="vgLiveLog" ToolTip="Clear all the form controls including document"
+                  CausesValidation="false" Text="Cancel" BackColor="Green" ForeColor="White" Width="180px" Font-Bold="false" OnClick="btnGoBack_Click" />
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+                                    </asp:TableCell>
+                                 <asp:TableCell></asp:TableCell>
+                                 <asp:TableCell></asp:TableCell>
+                                 </asp:TableRow>
+                             
+                        </asp:Table>
+                    </fieldset>
+                </asp:Panel>
+            </asp:TableCell>
+        </asp:TableRow>
+         
+        
+         
+         <asp:TableRow>
+            <asp:TableCell ColumnSpan="3">
+                <asp:Table ID="tblPastEvents" runat="server"
+        CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0"  
+         BorderWidth="0" Width="860" HorizontalAlign="Left">
+        <asp:TableRow>
+            <asp:TableCell>
+                <fieldset class="fs-border">
+                    <legend class="fs-border">Past 30  Fuel Logs</legend>
+                    <asp:Table ID="tblPastLog" runat="server" CellPadding="0" CellSpacing="4" BorderWidth="0" HorizontalAlign="Center" Width="960">
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label ID="lblPast" runat="server">There are no reported past Fuel logs in last 30 days.</asp:Label>
+                                <asp:Panel ID="pnlPast" runat="server">
+                                    <asp:Table ID="tblPast" runat="server" CellPadding="0" CellSpacing="0" Width="100%">
+                                        <asp:TableRow>
+                                            <asp:TableCell>
+                                                <asp:DataGrid ID="GrPast" runat="server" CssClass="listing" HorizontalAlign="Center" UseAccessibleHeader="True"
+                                                   AutoGenerateColumns="false"  BorderColor="Black" CellPadding="4" CellSpacing="0" 
+                                                     OnItemDataBound="GrPast_ItemDataBound" OnItemCommand="GrPast_ItemCommand1" >
+                                                   
+                                                    <HeaderStyle CssClass="columnhead" HorizontalAlign="Center"></HeaderStyle>
+                                                    <Columns>
+                                                        
+                                                        <asp:TemplateColumn HeaderText="Attachment" HeaderStyle-HorizontalAlign="Center">
+                                                            <ItemTemplate>
+                                                                <span class="buttonColumn">
+                                                        <asp:LinkButton ID="lnkDocTicket" runat="server" ToolTip="Click to view the document in a new window"  CommandName="View" CommandArgument="View" Text=" "></asp:LinkButton> 
+                                                        <asp:LinkButton ID="lnkDocTicket1" runat="server" ToolTip="Click to view the document in a new window"  CommandName="View1" CommandArgument="View1" Text=" "></asp:LinkButton> 
+                                                        <asp:LinkButton ID="lnkDocBillofLanding" runat="server" ToolTip="Click to view the document in a new window"  CommandName="ViewBill" CommandArgument="ViewBill" Text=" "></asp:LinkButton> 
+                                                                </span>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateColumn>
+                                                        <asp:BoundColumn DataField="FuelLogID" Visible="true" HeaderText="Fuel Log ID"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="Reported By" HeaderText="Reported By"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="Time of Event" HeaderText="Time of Event"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="Gallons"  HeaderText="Gallons"></asp:BoundColumn>
+                                                         <asp:BoundColumn DataField="Supplier"  HeaderText="Supplier"></asp:BoundColumn>
+                                                         <asp:BoundColumn DataField="Driver"  HeaderText="Driver"></asp:BoundColumn>
+                                                         <asp:BoundColumn DataField="BillNumber"  HeaderText="BillNumber"></asp:BoundColumn>
+                                                         <asp:BoundColumn DataField="OrderNumber"  HeaderText="OrderNumber"></asp:BoundColumn>
+                                                          <asp:BoundColumn  DataField="Deleted" Visible="false"  HeaderText="Deleted"></asp:BoundColumn>
+                                                        <asp:TemplateColumn HeaderText="Action" HeaderStyle-HorizontalAlign="Center">
+                                                            <ItemTemplate>
+                                                                <span class="buttonColumn">
+                                                   
+                                                                   
+                                                                    <asp:ImageButton ID="btnDelete" runat="server" CausesValidation="false" CommandName="Delete" 
+                                                                        ImageUrl="~/Images/Delete.png" Width="25px" Height="25px" ToolTip="Delete this entry"
+                                                                        AlternateText="Delete This Entry"></asp:ImageButton>
+                                                                    <asp:ImageButton ID="btnEdit" runat="server" CausesValidation="false" CommandName="Edit" 
+                                                                        ImageUrl="~/Images/Modify.png" Width="25px" Height="25px" ToolTip="Edit this entry"
+                                                                        AlternateText="Edit This Entry"></asp:ImageButton>
+                                                                </span>
+                                                                 
+                                                            </ItemTemplate>
+                                                        </asp:TemplateColumn>
+                                                        <asp:BoundColumn DataField="AttachmentID" Visible="false" HeaderText="AttachmentID"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="AttachmentBillID" Visible="false" HeaderText="AttachmentBillID"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="AttachmentID1" Visible="false" HeaderText="AttachmentID1"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="personroleid" Visible="false" HeaderText="personroleid"></asp:BoundColumn>
+                                                       
+                                                        </Columns>
+                                                </asp:DataGrid>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </asp:Panel>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </fieldset>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+                </asp:TableCell>
+             <asp:TableCell></asp:TableCell>
+             <asp:TableCell></asp:TableCell>
+              </asp:TableRow>
+          <asp:TableRow>
+            <asp:TableCell><hr /></asp:TableCell>
+             </asp:TableRow>
+         
+    </asp:Table>
+
+    
+
+    
+    
+    
+    
+</asp:Content>
+<asp:Content ID="Content17" ContentPlaceHolderID="cph_footer" runat="server">
+</asp:Content>
+ 
+

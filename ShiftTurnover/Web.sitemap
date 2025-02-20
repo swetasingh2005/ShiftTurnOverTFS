@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <!---
+  <siteMapNode url="~/Default.aspx" title="Home"  description="Home">
+  -->
+    <siteMapNode url="~/ReportList.aspx" title="Report List"  description="Report list">
+      <siteMapNode url="~/ReportAddEdit.aspx" title="Report Details" description="Report details" />
+      <siteMapNode url="~/DataCollection.aspx" title="Data Collection" description="Data collection" />
+      <siteMapNode url="~/ReportableSelection.aspx" title="Reportable Incidents" description="Reportable Incidents">
+        <siteMapNode url="~/OutofSpecIncidentList.aspx" title="Out of Specification (Alarm) Incidents" description="Out of Specification (Alarm) Incidents" />
+        <siteMapNode url="~/MissingDataList.aspx" title="Missing Trending Data" description="Missing Trending Data" />
+        <siteMapNode url="~/SafetyAlarmList.aspx" title="Safety Alarm" description="Safety Alarm Incident" />
+        <siteMapNode url="~/OtherIncidentList.aspx" title="Other Incidents" description="Other Incidents" />
+      </siteMapNode>
+      <siteMapNode url="~/PreviousFindings.aspx" title="Previous Findings" description="Previous Findings Update" />
+      <siteMapNode url="~/ReportAttachments.aspx" title="Report Attachments" description="Report Attachments" />
+      <siteMapNode url="~/ReportSummary.aspx" title="Report Summary" description="Report Summary" />
+      <siteMapNode url="~/ReportSubmit.aspx" title="Submit Report" description="Submit Report for Review" />
+    </siteMapNode>
+  <!---
+  </siteMapNode>
+  -->
+</siteMap>
