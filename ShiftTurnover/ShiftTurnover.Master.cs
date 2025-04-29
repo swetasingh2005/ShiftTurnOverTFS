@@ -47,36 +47,19 @@ namespace ShiftTurnover
                         lblRole.Text = (string)Session["personrole"];
                     }
                     pnlFirstMenu.Visible = true;
+
                     string url = HttpContext.Current.Request.Url.AbsoluteUri;
                     SetFirstMenu(url);
-                    if (url.Contains("NewTurnover"))
+                    if (url.Contains("NewTurnover") || url.Contains("Main"))
                     {
                         SetSecondMenu(url);
-                        if (url.Contains("Status"))
-                        {
-                            pnlthirdMenu.Visible = true;
-                            //pnlthirdWOMenu.Visible = false;
-                            pnlthirdAlmMenu.Visible = false;
-                            SetThirdMenu(url);
-                        }
-                        else if (url.Contains("_CriticalAlm"))
-
+                        if (url.Contains("_CriticalAlm"))
                         {
                             pnlsecondMenu.Visible = true;
                             pnlthirdMenu.Visible = false;
-                            //pnlthirdWOMenu.Visible = false;
                             pnlthirdAlmMenu.Visible = true;
                             SetThirdAlmMenu(url);
                         }
-                        //else if (url.Contains("_WO"))
-                        //{
-                        //    pnlthirdMenu.Visible = false;
-                        //    //pnlthirdWOMenu.Visible = true;
-                        //    pnlthirdAlmMenu.Visible = false;
-                        //    pnlsecondMenu.Visible = true;
-                        //    SetThirdWOMenu(url);
-                        //}
-
                         else
                         {
                             pnlthirdMenu.Visible = false;
@@ -84,13 +67,20 @@ namespace ShiftTurnover
                             pnlthirdAlmMenu.Visible = false;
                         }
                     }
+                    else if (url.Contains("Log"))
+                    {
+                        pnlsecondMenu.Visible = false;
+                        pnlthirdMenu.Visible = true;
+                        pnlthirdAlmMenu.Visible = false;
+                        SetThirdMenu(url);
+                    }
                     else
                     {
                         pnlsecondMenu.Visible = false;
                     }
 
                     //if (url.Contains("SubmissionReport.aspx"))
-                    if (new[] {"Manager"}.Contains(Session["personrole"].ToString()))
+                    if (new[] { "Manager" }.Contains(Session["personrole"].ToString()))
                     {
                         pnlsecondMenu.Visible = false;
                         pnlthirdMenu.Visible = false;
@@ -107,22 +97,14 @@ namespace ShiftTurnover
                 pnlsecondMenu.Visible = false;
                 pnlthirdMenu.Visible = false;
                 pnlFirstMenu.Visible = false;
-                //pnlthirdWOMenu.Visible = false;
-
-                //if (!HttpContext.Current.Request.Url.AbsoluteUri.Contains("Default.aspx"))
-                //{
-                //    Response.Redirect("Default.aspx");
-                //}
-
-
-
 
             }
 
         }
         protected void SetFirstMenu(string url)
         {
-            string btn = "MainPage"; 
+            
+            string btn = "MainPage";
             if (url.Contains("EquipmentStatus")) { btn = "EquipmentStatus"; }
             else if (url.Contains("NewTurnover")) { btn = "NewTurnover"; }
             else if (url.Contains("OldTurnover")) { btn = "OldTurnover"; }
@@ -131,7 +113,7 @@ namespace ShiftTurnover
             else if (url.Contains("EngineeringLog")) { btn = "EngineeringLog"; }
             else if (url.Contains("HVGLog")) { btn = "HVGLog"; }
             else if (url.Contains("FuelLog")) { btn = "FuelLog"; }
-            else if (url.Contains("WaterTreatmentLog")) { btn = "WaterTreatmentLog"; }
+            else if (url.Contains("WaterTreatment")) { btn = "WaterTreatment"; }
             else { btn = "MainPage"; }
 
             switch (btn)
@@ -142,133 +124,108 @@ namespace ShiftTurnover
                     //pnlthirdWOMenu.Visible = false;
                     pnlFirstMenu.Visible = false;
                     break;
-                case "MainPage":
-                    pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
-                    //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "active";
-                    aNewTurnover.Attributes["class"] = "inactive";
-                    aOldTurnover.Attributes["class"] = "inactive";
-                    aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
-                    break;
+
                 case "EquipmentStatus":
                     pnlsecondMenu.Visible = false;
                     pnlthirdMenu.Visible = false;
                     //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
                     aEquipmentStatus.Attributes["class"] = "active";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
+                    // aLiveLogSearch.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "inactive";
+
                     break;
                 case "NewTurnover":
-                    aMainPage.Attributes["class"] = "inactive";
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "active";
                     aOldTurnover.Attributes["class"] = "inactive";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "inactive";
+
                     pnlsecondMenu.Visible = true;
                     pnlthirdMenu.Visible = false;
                     break;
+                case "MainPage":
+                    aLiveLog.Attributes["class"] = "active";
+                    aNewTurnover.Attributes["class"] = "inactive";
+                    aOldTurnover.Attributes["class"] = "inactive";
+                    aEquipmentStatus.Attributes["class"] = "inactive";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "inactive";
 
+                    pnlsecondMenu.Visible = false;
+                    pnlthirdMenu.Visible = false;
+                    break;
                 case "OldTurnover":
                     pnlsecondMenu.Visible = false;
                     pnlthirdMenu.Visible = false;
                     //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
+                    // aLiveLogSearch.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "inactive";
+
                     break;
                 case "LiveLogSearch":
                     pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
-                    //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    pnlthirdMenu.Visible = true;
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "active";
-                    aEngineeringLog.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
+
                     break;
                 case "EngineeringLog":
                     pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
-                    //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    pnlthirdMenu.Visible = true;
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "active";
+                    aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
+
                     break;
                 case "HVGLog":
                     pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
+                    pnlthirdMenu.Visible = true;
                     //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "active";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
+                    //  aLiveLogSearch.Attributes["class"] = "inactive";
+
                     break;
                 case "FuelLog":
                     pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
+                    pnlthirdMenu.Visible = true;
                     //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "active";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
                     break;
-                case "WaterTreatmentLog":
+                case "WaterTreatment":
                     pnlsecondMenu.Visible = false;
-                    pnlthirdMenu.Visible = false;
-                    //pnlthirdWOMenu.Visible = false;
-                    aMainPage.Attributes["class"] = "inactive";
+                    pnlthirdMenu.Visible = true;
+                    aLiveLog.Attributes["class"] = "inactive";
                     aNewTurnover.Attributes["class"] = "inactive";
                     aOldTurnover.Attributes["class"] = "inactive";
-                    aEngineeringLog.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
-                    aLiveLogSearch.Attributes["class"] = "inactive";
-                    aHVGLog.Attributes["class"] = "inactive";
-                    aFuelLog.Attributes["class"] = "inactive";
-                    aWaterTreatmentLog.Attributes["class"] = "active";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
+
                     break;
-                    
                 default:
                     pnlsecondMenu.Visible = false;
                     pnlthirdMenu.Visible = false;
@@ -280,68 +237,51 @@ namespace ShiftTurnover
         protected void SetSecondMenu(string url)
         {
             string subMenubtn = "";
-            if (url.Contains("Status")) { subMenubtn = "Status"; }
+            if (url.Contains("NewTurnover.aspx")) { subMenubtn = "ShiftW"; }
             else if (url.Contains("CriticalAlm")) { subMenubtn = "CriticalAlm"; }
-            //else if (url.Contains("WO")) { subMenubtn = "WO"; }
+            else if (url.Contains("Main")) { subMenubtn = "Live"; }
             else if (url.Contains("LOTO")) { subMenubtn = "LOTO"; }
             else if (url.Contains("Review")) { subMenubtn = "Review"; }
             else if (url.Contains("Acknowledgement")) { subMenubtn = "Acknowledgement"; }
-            else { subMenubtn = "ShiftW"; }
+            else { subMenubtn = "Acknowledgement"; }
             switch (subMenubtn)
             {
                 case "ShiftW":
                     btnShiftWorker.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnReview.BackColor = Color.Black;
-                    btnStatus.BackColor = Color.Black;
-                    btnLOTO.BackColor = Color.Black;
+                    
                     btnAlarms.BackColor = Color.Black;
                     btnAcknowledgement.BackColor = Color.Black;
                     break;
-                case "Status":
-                    btnStatus.BackColor = ColorTranslator.FromHtml("#b3112c");
+                case "Live":
+                     
                     btnReview.BackColor = Color.Black;
                     btnShiftWorker.BackColor = Color.Black;
-                    btnLOTO.BackColor = Color.Black;
+
                     btnAlarms.BackColor = Color.Black;
                     btnAcknowledgement.BackColor = Color.Black;
                     break;
-                //case "WO":
-                //    btnWO.BackColor = ColorTranslator.FromHtml("#b3112c");
-                //    btnReview.BackColor = Color.Black;
-                //    btnStatus.BackColor = Color.Black;
-                //    btnShiftWorker.BackColor = Color.Black;
-                //    btnAlarms.BackColor = Color.Black;
-                //    btnAcknowledgement.BackColor = Color.Black;
-                //    break;
-                case "LOTO":
-                    btnLOTO.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnReview.BackColor = Color.Black;
-                    btnStatus.BackColor = Color.Black;
-                    btnShiftWorker.BackColor = Color.Black;
-                    btnAlarms.BackColor = Color.Black;
-                    btnAcknowledgement.BackColor = Color.Black;
-                    break;
+
+
                 case "CriticalAlm":
                     btnAlarms.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnLOTO.BackColor = Color.Black;
+                   
                     btnReview.BackColor = Color.Black;
-                    btnStatus.BackColor = Color.Black;
+
                     btnShiftWorker.BackColor = Color.Black;
                     btnAcknowledgement.BackColor = Color.Black;
                     break;
                 case "Review":
                     btnReview.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnShiftWorker.BackColor = Color.Black;
-                    btnStatus.BackColor = Color.Black;
-                    btnLOTO.BackColor = Color.Black;
+                    
                     btnAlarms.BackColor = Color.Black;
                     btnAcknowledgement.BackColor = Color.Black;
                     break;
                 case "Acknowledgement":
                     btnReview.BackColor = Color.Black;
                     btnShiftWorker.BackColor = Color.Black;
-                    btnStatus.BackColor = Color.Black;
-                    btnLOTO.BackColor = Color.Black;
+                     
                     btnAlarms.BackColor = Color.Black;
                     btnAcknowledgement.BackColor = ColorTranslator.FromHtml("#b3112c");
                     break;
@@ -354,92 +294,56 @@ namespace ShiftTurnover
         protected void SetThirdMenu(string url)
         {
             string statusMenubtn = "";
-            if (url.Contains("ChlStatus")) { statusMenubtn = "ChlStatus"; }
-            else if (url.Contains("CTStatus")) { statusMenubtn = "CTStatus"; }
-            else if (url.Contains("FreeCoStatus")) { statusMenubtn = "FreeCoStatus"; }
-            else if (url.Contains("ROBlrStatus")) { statusMenubtn = "ROBlrStatus"; }
-            else if (url.Contains("ChlPmpStatus")) { statusMenubtn = "ChlPmpStatus"; }
-            else { statusMenubtn = "BlrStatus"; }
+            if (url.Contains("EngineeringLog")) { statusMenubtn = "btnEngg"; }
+            else if (url.Contains("HVGLog")) { statusMenubtn = "btnHVG"; }
+            else if (url.Contains("FuelLog")) { statusMenubtn = "btnFuel"; }
+            else if (url.Contains("LiveLogSearch")) { statusMenubtn = "btnLogSearch"; }
+            else if (url.Contains("WaterTreatment")) { statusMenubtn = "btnWaterTreatment"; }
+            else { statusMenubtn = "btnEngg"; }
+            pnlthirdMenu.Visible = true;
             switch (statusMenubtn)
             {
-                case "ChlStatus":
-                    btnChl.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnPump.BackColor = Color.Black;
-                    btnCT.BackColor = Color.Black;
-                    btnFreeCo.BackColor = Color.Black;
-                    btnBlr.BackColor = Color.Black;
-                    btnRO.BackColor = Color.Black;
+                case "btnWaterTreatment":
+                    btnWaterTreatment.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnHVG.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnLogSearch.BackColor = Color.Black;
+                    btnEngg.BackColor = Color.Black;
                     break;
-                case "ChlPmpStatus":
-                    btnChl.BackColor = Color.Black;
-                    btnPump.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnCT.BackColor = Color.Black;
-                    btnFreeCo.BackColor = Color.Black;
-                    btnBlr.BackColor = Color.Black;
-                    btnRO.BackColor = Color.Black;
+                case "btnEngg":
+                    btnEngg.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnHVG.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnLogSearch.BackColor = Color.Black;
+                    btnWaterTreatment.BackColor = Color.Black;
                     break;
-                case "CTStatus":
-                    btnChl.BackColor = Color.Black;
-                    btnPump.BackColor = Color.Black;
-                    btnCT.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnFreeCo.BackColor = Color.Black;
-                    btnBlr.BackColor = Color.Black;
-                    btnRO.BackColor = Color.Black;
+                case "btnHVG":
+                    btnEngg.BackColor = Color.Black;
+                    btnHVG.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnFuel.BackColor = Color.Black;
+                    btnLogSearch.BackColor = Color.Black;
+                    btnWaterTreatment.BackColor = Color.Black;
                     break;
-                case "FreeCoStatus":
-                    btnChl.BackColor = Color.Black;
-                    btnPump.BackColor = Color.Black;
-                    btnCT.BackColor = Color.Black;
-                    btnFreeCo.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnBlr.BackColor = Color.Black;
-                    btnRO.BackColor = Color.Black;
+                case "btnFuel":
+                    btnEngg.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnFuel.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnLogSearch.BackColor = Color.Black;
+                    btnWaterTreatment.BackColor = Color.Black;
                     break;
-                case "ROBlrStatus":
-                    btnChl.BackColor = Color.Black;
-                    btnPump.BackColor = Color.Black;
-                    btnCT.BackColor = Color.Black;
-                    btnFreeCo.BackColor = Color.Black;
-                    btnBlr.BackColor = Color.Black;
-                    btnRO.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    break;
-
-                case "BlrStatus":
-                    btnBlr.BackColor = ColorTranslator.FromHtml("#b3112c");
-                    btnPump.BackColor = Color.Black;
-                    btnCT.BackColor = Color.Black;
-                    btnFreeCo.BackColor = Color.Black;
-                    btnChl.BackColor = Color.Black;
-                    btnRO.BackColor = Color.Black;
+                case "btnLogSearch":
+                    btnEngg.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnFuel.BackColor = Color.Black;
+                    btnWaterTreatment.BackColor = Color.Black;
+                    btnLogSearch.BackColor = ColorTranslator.FromHtml("#b3112c");
                     break;
                 default:
                     break;
             }
 
         }
-        //protected void SetThirdWOMenu(string url)
-        //{
-        //    string statusMenubtn = "";
-        //    if (url.Contains("NewTurnover_WO_MaintSchedWO")) { statusMenubtn = "NewTurnover_WO_MaintSchedWO"; }
-        //    else if (url.Contains("NewTurnover_WO_WCWO")) { statusMenubtn = "NewTurnover_WO_WCWO"; }
-        //    else { statusMenubtn = "NewTurnover_WO"; }
-        //    switch (statusMenubtn)
-        //    {
-        //        case "NewTurnover_WO":
-        //            //btnMaintWO.BackColor = ColorTranslator.FromHtml("#b3112c");
-        //            //btnMaintSchedWO.BackColor = Color.Black;
 
-        //            break;
-        //        case "NewTurnover_WO_MaintSchedWO":
-        //            //btnMaintWO.BackColor = Color.Black;
-        //            //btnMaintSchedWO.BackColor = ColorTranslator.FromHtml("#b3112c");
-
-        //            break;
-
-        //        default:
-        //            break;
-        //    }
-
-        //}
         protected void SetThirdAlmMenu(string url)
         {
 
@@ -469,37 +373,7 @@ namespace ShiftTurnover
 
             Response.Redirect("MainPage.aspx");
         }
-        //protected void btnMaintWO_Click(object sender, EventArgs e)
-        //{
-        //    Button btn = (Button)sender;
-        //    string url = "NewTurnover_WO.aspx";
-        //    if (btn != null)
-        //    {
-        //        switch (btn.ID)
-        //        {
-        //            case "btnMaintWO":
-        //                url = "NewTurnover_WO.aspx";
-        //                break;
-        //            case "btnMaintSchedWO":
-        //                url = "NewTurnover_WO_MaintSchedWO.aspx";
-        //                break;
 
-
-        //            case "btnWCWO":
-        //                url = "NewTurnover_WO_WCWO.aspx";
-        //                break;
-        //            case "btnWChemAlam":
-        //                url = "NewTurnover_WO_WChemAlam.aspx";
-        //                break;
-        //            default:
-        //                break;
-        //        }
-
-
-        //    }
-        //    Response.Redirect(url);
-
-        //}
         protected void btnEquipmentStatus_Click(object sender, EventArgs e)
         {
 
@@ -573,6 +447,41 @@ namespace ShiftTurnover
         protected void btnLOTO_Click(object sender, EventArgs e)
         {
             Response.Redirect("NewTurnover_LOTO.aspx");
+        }
+
+        protected void btnLiveLog_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("MainPage.aspx");
+        }
+
+        protected void btnEngg_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EngineeringLog.aspx");
+        }
+
+        protected void btnHVG_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HVGLog.aspx");
+        }
+
+        protected void btnFuel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FuelLog.aspx");
+        }
+
+        protected void btnLogSearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LiveLogSearch.aspx");
+        }
+
+        protected void btnInCtr_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WaterTreatmentLog.aspx");
+        }
+
+        protected void btnWaterTreatment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WaterTreatmentLog.aspx");
         }
     }
 }

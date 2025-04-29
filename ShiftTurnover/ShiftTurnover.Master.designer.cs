@@ -276,22 +276,13 @@ namespace ShiftTurnover
         protected global::System.Web.UI.WebControls.Panel pnlFirstMenu;
 
         /// <summary>
-        /// aMainPage control.
+        /// aLiveLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aMainPage;
-
-        /// <summary>
-        /// aEquipmentStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aEquipmentStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aLiveLog;
 
         /// <summary>
         /// aNewTurnover control.
@@ -303,6 +294,15 @@ namespace ShiftTurnover
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aNewTurnover;
 
         /// <summary>
+        /// aEquipmentStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aEquipmentStatus;
+
+        /// <summary>
         /// aOldTurnover control.
         /// </summary>
         /// <remarks>
@@ -312,49 +312,13 @@ namespace ShiftTurnover
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aOldTurnover;
 
         /// <summary>
-        /// aEngineeringLog control.
+        /// aLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aEngineeringLog;
-
-        /// <summary>
-        /// aHVGLog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aHVGLog;
-
-        /// <summary>
-        /// aFuelLog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aFuelLog;
-
-        /// <summary>
-        /// aWaterTreatmentLog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aWaterTreatmentLog;
-
-        /// <summary>
-        /// aLiveLogSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aLiveLogSearch;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aLog;
 
         /// <summary>
         /// pnlsecondMenu control.
@@ -393,24 +357,6 @@ namespace ShiftTurnover
         protected global::System.Web.UI.WebControls.Button btnShiftWorker;
 
         /// <summary>
-        /// btnStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStatus;
-
-        /// <summary>
-        /// btnLOTO control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLOTO;
-
-        /// <summary>
         /// btnAlarms control.
         /// </summary>
         /// <remarks>
@@ -427,78 +373,6 @@ namespace ShiftTurnover
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReview;
-
-        /// <summary>
-        /// pnlthirdMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlthirdMenu;
-
-        /// <summary>
-        /// thirdMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl thirdMenu;
-
-        /// <summary>
-        /// btnChl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChl;
-
-        /// <summary>
-        /// btnPump control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPump;
-
-        /// <summary>
-        /// btnCT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCT;
-
-        /// <summary>
-        /// btnFreeCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFreeCo;
-
-        /// <summary>
-        /// btnBlr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBlr;
-
-        /// <summary>
-        /// btnRO control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRO;
 
         /// <summary>
         /// pnlthirdAlmMenu control.
@@ -526,6 +400,69 @@ namespace ShiftTurnover
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCriticalAlm;
+
+        /// <summary>
+        /// pnlthirdMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlthirdMenu;
+
+        /// <summary>
+        /// thirdMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl thirdMenu;
+
+        /// <summary>
+        /// btnLogSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogSearch;
+
+        /// <summary>
+        /// btnEngg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEngg;
+
+        /// <summary>
+        /// btnHVG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHVG;
+
+        /// <summary>
+        /// btnFuel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFuel;
+
+        /// <summary>
+        /// btnWaterTreatment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWaterTreatment;
 
         /// <summary>
         /// cph_banner control.
