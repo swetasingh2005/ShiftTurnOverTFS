@@ -171,6 +171,7 @@
     <Content Include="Assets\js\jquery.js" />
     <Content Include="CUPDocumentUpload.aspx" />
     <Content Include="FuelLog.aspx" />
+    <Content Include="SecurityLog.aspx" />
     <Content Include="WaterTreatmentLog.aspx" />
     <Content Include="HVGLog.aspx" />
     <Content Include="EngineeringLog.aspx" />
@@ -186,11 +187,8 @@
     <Content Include="Help_WildCard.aspx" />
     <Content Include="LiveLogSearch.aspx" />
     <Content Include="NewTurnover_Acknowledgement.aspx" />
-    <Content Include="NewTurnover_Rounds.aspx" />
     <Content Include="BenchMarkingReport.aspx" />
     <Content Include="ReportNotSubmitted.aspx" />
-    <Content Include="NewTurnover_LOTO.aspx" />
-    <Content Include="NewTurnover_Selector.aspx" />
     <Content Include="NewTurnover_CriticalAlm.aspx" />
     <Content Include="OldTurnoverEdit.aspx" />
     <Content Include="Reports.aspx" />
@@ -477,17 +475,7 @@
     <Content Include="Filer.sitemap" />
     <Content Include="LogOut.aspx" />
     <Content Include="MainPage.aspx" />
-    <Content Include="NewTurnover_ROBlrStatus.aspx" />
-    <Content Include="NewTurnover_BlrStatus.aspx" />
-    <Content Include="NewTurnover_FreeCoStatus.aspx" />
-    <Content Include="NewTurnover_CTStatus.aspx" />
     <Content Include="NewTurnover_Review.aspx" />
-    <Content Include="NewTurnover_ChlPmpStatus.aspx" />
-    <Content Include="NewTurnover_WO_WChemAlam.aspx" />
-    <Content Include="NewTurnover_WO_WCWO.aspx" />
-    <Content Include="NewTurnover_WO_MaintSchedWO.aspx" />
-    <Content Include="NewTurnover_WO.aspx" />
-    <Content Include="NewTurnover_ChlStatus.aspx" />
     <Content Include="NewTurnover.aspx" />
     <Content Include="OldTurnover.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker-4.17.47-edited.js" />
@@ -813,6 +801,13 @@
     <Compile Include="FuelLog.aspx.designer.cs">
       <DependentUpon>FuelLog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SecurityLog.aspx.cs">
+      <DependentUpon>SecurityLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SecurityLog.aspx.designer.cs">
+      <DependentUpon>SecurityLog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WaterTreatmentLog.aspx.cs">
       <DependentUpon>WaterTreatmentLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -911,13 +906,6 @@
     <Compile Include="NewTurnover_Acknowledgement.aspx.designer.cs">
       <DependentUpon>NewTurnover_Acknowledgement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewTurnover_Rounds.aspx.cs">
-      <DependentUpon>NewTurnover_Rounds.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_Rounds.aspx.designer.cs">
-      <DependentUpon>NewTurnover_Rounds.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BenchMarkingReport.aspx.cs">
       <DependentUpon>BenchMarkingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -931,20 +919,6 @@
     </Compile>
     <Compile Include="ReportNotSubmitted.aspx.designer.cs">
       <DependentUpon>ReportNotSubmitted.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_LOTO.aspx.cs">
-      <DependentUpon>NewTurnover_LOTO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_LOTO.aspx.designer.cs">
-      <DependentUpon>NewTurnover_LOTO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_Selector.aspx.cs">
-      <DependentUpon>NewTurnover_Selector.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_Selector.aspx.designer.cs">
-      <DependentUpon>NewTurnover_Selector.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewTurnover_CriticalAlm.aspx.cs">
       <DependentUpon>NewTurnover_CriticalAlm.aspx</DependentUpon>
@@ -1031,82 +1005,12 @@
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewTurnover_ROBlrStatus.aspx.cs">
-      <DependentUpon>NewTurnover_ROBlrStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_ROBlrStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_ROBlrStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_BlrStatus.aspx.cs">
-      <DependentUpon>NewTurnover_BlrStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_BlrStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_BlrStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_FreeCoStatus.aspx.cs">
-      <DependentUpon>NewTurnover_FreeCoStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_FreeCoStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_FreeCoStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_CTStatus.aspx.cs">
-      <DependentUpon>NewTurnover_CTStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_CTStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_CTStatus.aspx</DependentUpon>
-    </Compile>
     <Compile Include="NewTurnover_Review.aspx.cs">
       <DependentUpon>NewTurnover_Review.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewTurnover_Review.aspx.designer.cs">
       <DependentUpon>NewTurnover_Review.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_ChlPmpStatus.aspx.cs">
-      <DependentUpon>NewTurnover_ChlPmpStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_ChlPmpStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_ChlPmpStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_WO_WChemAlam.aspx.cs">
-      <DependentUpon>NewTurnover_WO_WChemAlam.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_WO_WChemAlam.aspx.designer.cs">
-      <DependentUpon>NewTurnover_WO_WChemAlam.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_WO_WCWO.aspx.cs">
-      <DependentUpon>NewTurnover_WO_WCWO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_WO_WCWO.aspx.designer.cs">
-      <DependentUpon>NewTurnover_WO_WCWO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_WO_MaintSchedWO.aspx.cs">
-      <DependentUpon>NewTurnover_WO_MaintSchedWO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_WO_MaintSchedWO.aspx.designer.cs">
-      <DependentUpon>NewTurnover_WO_MaintSchedWO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_WO.aspx.cs">
-      <DependentUpon>NewTurnover_WO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_WO.aspx.designer.cs">
-      <DependentUpon>NewTurnover_WO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewTurnover_ChlStatus.aspx.cs">
-      <DependentUpon>NewTurnover_ChlStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewTurnover_ChlStatus.aspx.designer.cs">
-      <DependentUpon>NewTurnover_ChlStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewTurnover.aspx.cs">
       <DependentUpon>NewTurnover.aspx</DependentUpon>

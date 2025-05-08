@@ -113,6 +113,7 @@ namespace ShiftTurnover
             else if (url.Contains("EngineeringLog")) { btn = "EngineeringLog"; }
             else if (url.Contains("HVGLog")) { btn = "HVGLog"; }
             else if (url.Contains("FuelLog")) { btn = "FuelLog"; }
+            else if (url.Contains("SecurityLog")) { btn = "SecurityLog"; }
             else if (url.Contains("WaterTreatment")) { btn = "WaterTreatment"; }
             else { btn = "MainPage"; }
 
@@ -179,6 +180,17 @@ namespace ShiftTurnover
                     aOldTurnover.Attributes["class"] = "inactive";
                     aLog.Attributes["class"] = "active";
                     aEquipmentStatus.Attributes["class"] = "inactive";
+
+                    break;
+                case "SecurityLog":
+                    pnlsecondMenu.Visible = false;
+                    pnlthirdMenu.Visible = true;
+                    aLiveLog.Attributes["class"] = "inactive";
+                    aNewTurnover.Attributes["class"] = "inactive";
+                    aOldTurnover.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
+                    aEquipmentStatus.Attributes["class"] = "inactive";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
 
                     break;
                 case "EngineeringLog":
@@ -299,16 +311,26 @@ namespace ShiftTurnover
             else if (url.Contains("FuelLog")) { statusMenubtn = "btnFuel"; }
             else if (url.Contains("LiveLogSearch")) { statusMenubtn = "btnLogSearch"; }
             else if (url.Contains("WaterTreatment")) { statusMenubtn = "btnWaterTreatment"; }
+            else if (url.Contains("SecurityLog")) { statusMenubtn = "btnSecurityLog"; }
             else { statusMenubtn = "btnEngg"; }
             pnlthirdMenu.Visible = true;
             switch (statusMenubtn)
             {
+                case "btnSecurityLog":
+                    btnSecurityLog.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnWaterTreatment.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnLogSearch.BackColor = Color.Black;
+                    btnEngg.BackColor = Color.Black;
+                    break;
                 case "btnWaterTreatment":
                     btnWaterTreatment.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnHVG.BackColor = Color.Black;
                     btnHVG.BackColor = Color.Black;
                     btnLogSearch.BackColor = Color.Black;
                     btnEngg.BackColor = Color.Black;
+                    btnSecurityLog.BackColor = Color.Black;
                     break;
                 case "btnEngg":
                     btnEngg.BackColor = ColorTranslator.FromHtml("#b3112c");
@@ -316,6 +338,7 @@ namespace ShiftTurnover
                     btnHVG.BackColor = Color.Black;
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
+                    btnSecurityLog.BackColor = Color.Black;
                     break;
                 case "btnHVG":
                     btnEngg.BackColor = Color.Black;
@@ -323,6 +346,7 @@ namespace ShiftTurnover
                     btnFuel.BackColor = Color.Black;
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
+                    btnSecurityLog.BackColor = Color.Black;
                     break;
                 case "btnFuel":
                     btnEngg.BackColor = Color.Black;
@@ -330,6 +354,7 @@ namespace ShiftTurnover
                     btnFuel.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
+                    btnSecurityLog.BackColor = Color.Black;
                     break;
                 case "btnLogSearch":
                     btnEngg.BackColor = Color.Black;
@@ -337,6 +362,7 @@ namespace ShiftTurnover
                     btnFuel.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
                     btnLogSearch.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    btnSecurityLog.BackColor = Color.Black;
                     break;
                 default:
                     break;
@@ -482,6 +508,11 @@ namespace ShiftTurnover
         protected void btnWaterTreatment_Click(object sender, EventArgs e)
         {
             Response.Redirect("WaterTreatmentLog.aspx");
+        }
+
+        protected void btnSecurityLog_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SecurityLog.aspx");
         }
     }
 }

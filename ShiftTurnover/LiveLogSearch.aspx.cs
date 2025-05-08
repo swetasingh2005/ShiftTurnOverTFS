@@ -165,11 +165,11 @@ namespace ShiftTurnover
             DateTime Edate = Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd"));
             if (txtEDate.Text.Length > 0)
             {
-                Edate = Convert.ToDateTime(txtEDate.Text);
+                Edate = Convert.ToDateTime(txtEDate.Text).AddDays(1);
             }
             if (txtSDate.Text.Length > 0)
             {
-                Sdate = Convert.ToDateTime(txtSDate.Text);
+                Sdate = Convert.ToDateTime(txtSDate.Text).Date;
             }
             sb.Append(" select  personroleid,'Reported By' = dbo.getpersonname(dbo.getpersonid(personroleid), NULL) ,'Time of Event' = CreateDate,Description , CASE WHEN Deleted = 1 THEN 'Yes' else 'No' End as 'Deleted' from " + table + "");
             //string sql = " select  personroleid,'Reported By' = dbo.getpersonname(dbo.getpersonid(personroleid), NULL) ,'Time of Event' = CreateDate,Description , CASE WHEN Deleted = 1 THEN 'Yes' else 'No' End as 'Deleted' from EngineeringLog";
@@ -375,6 +375,10 @@ namespace ShiftTurnover
             else if (ddlLogType.SelectedIndex == 4)
             {
                 ds = GetSearchResult(" LiveLog ");
+            }
+            else if (ddlLogType.SelectedIndex == 5)
+            {
+                ds = GetSearchResult(" SecurityLog ");
             }
             else
             {
@@ -634,7 +638,14 @@ namespace ShiftTurnover
                     ExportDataSetToExcel(ds.Tables[0]);
                 }
             }
-
+            else if (ddlLogType.SelectedIndex == 5)
+            {
+                DataSet ds = GetSearchResult(" SecurityLog ");
+                if (ds != null)
+                {
+                    ExportDataSetToExcel(ds.Tables[0]);
+                }
+            }
             else
             {
                 DataSet ds =  GetSearchResult(" HVGLog ");

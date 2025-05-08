@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Shift Turnover Logs(Engineering, Live, HVG) Search " Language="C#" MasterPageFile="~/ShiftTurnover.Master" AutoEventWireup="true" CodeBehind="LiveLogSearch.aspx.cs" Inherits="ShiftTurnover.LiveLogSearch" %>
+﻿<%@ Page Title="Shift Turnover Logs Search " Language="C#" MasterPageFile="~/ShiftTurnover.Master" AutoEventWireup="true" CodeBehind="LiveLogSearch.aspx.cs" Inherits="ShiftTurnover.LiveLogSearch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -65,7 +65,7 @@
                     <asp:ListItem Text="HVG Log" Value="2" ></asp:ListItem>
                     <asp:ListItem Text="Fuel Log" Value="3" ></asp:ListItem>
                     <asp:ListItem Text="Water Treatment Log" Value="4" ></asp:ListItem>
-               
+                   <asp:ListItem Text="Security  Log" Value="5" ></asp:ListItem>
                     </asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell Height="50px">

@@ -367,17 +367,18 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
                     </asp:Panel>
                     <asp:Panel ID="pnlthirdMenu" runat="server" >
                             <div id="thirdMenu" style="margin-top: 2px; margin-left: 5px; margin-bottom: 2px;" runat="server">
-                                <asp:Button ID="btnLogSearch" runat="server" Text="Log Search" OnClick="btnLogSearch_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+                                <asp:Button ID="btnLogSearch" runat="server" Text=" Search " OnClick="btnLogSearch_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
                                     ForeColor="White" Width="100px" ToolTip=" Engineering Log " />
-                                <asp:Button ID="btnEngg" runat="server" Text=" Engineering  Log" OnClick="btnEngg_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+                                <asp:Button ID="btnEngg" runat="server" Text=" Engineering  " OnClick="btnEngg_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
                                     ForeColor="White" Width="120px" ToolTip=" Engineering Log " />
-                                <asp:Button ID="btnHVG" runat="server" Text=" HVG Log  " OnClick="btnHVG_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+                                <asp:Button ID="btnHVG" runat="server" Text=" HVG   " OnClick="btnHVG_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
                                     ForeColor="White" Width="80px" ToolTip=" HVG Log " />
-                                <asp:Button ID="btnFuel" runat="server" Text=" Fuel Log" CssClass="btn" OnClick="btnFuel_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+                                <asp:Button ID="btnFuel" runat="server" Text=" Fuel " CssClass="btn" OnClick="btnFuel_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
                                     ForeColor="White" Width="80px" ToolTip="Fuel Log" />
-                                 <asp:Button ID="btnWaterTreatment" runat="server" Text=" Water Treatment Log" CssClass="btn" OnClick="btnWaterTreatment_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="215px" ToolTip="Fuel Log" />
-                                
+                                 <asp:Button ID="btnWaterTreatment" runat="server" Text=" Water Treatment " CssClass="btn" OnClick="btnWaterTreatment_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+                                    ForeColor="White" Width="200px" ToolTip="Water Treatment Log" />
+                                 <asp:Button ID="btnSecurityLog" runat="server" Text=" Security  " CssClass="btn" OnClick="btnSecurityLog_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
+    ForeColor="White" Width="130px" ToolTip="Security Log" />
                             </div>
 							
                         </asp:Panel>

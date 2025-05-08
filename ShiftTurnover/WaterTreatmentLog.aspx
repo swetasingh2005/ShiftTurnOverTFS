@@ -39,7 +39,6 @@
                     // Apply the search
                     this.api().columns().every(function () {
                         var that = this;
-
                         $('input', this.footer()).on('keyup keypress change clear', function () {
                             if (that.search() !== this.value) {
                                 that
