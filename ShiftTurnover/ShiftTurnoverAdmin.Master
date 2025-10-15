@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShiftTurnover.Master.cs" Inherits="ShiftTurnover.GSSP" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShiftTurnoverAdmin.Master.cs" Inherits="ShiftTurnover.ShiftTurnoverAdmin" %>
 
 <!DOCTYPE html>
 
@@ -323,68 +323,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	    </div>   
                 <div id="globaltabs">
             <asp:ContentPlaceHolder ID="cph_Nav" runat="server">
-                <asp:Panel ID="pnlFirstMenu" runat="server">
-                    <div class="topnav" id="myTopnav" style="margin-top: 98px; height: 40px; background-color: white;">
-
-                         <a id="aLiveLog" runat="server" onserverclick="btnLiveLog_Click" causesvalidation="false">Live Log</a>
-                        <a id="aNewTurnover" runat="server" onserverclick="btnNewTurnover_Click" causesvalidation="false">New Turnover Report</a>
-                        <a href="EquipmentStatus.aspx" id="aEquipmentStatus" class="inactive" visible="true" runat="server" target="_self">Equipment Status</a>
-                        <a href="OldTurnover.aspx" id="aOldTurnover" runat="server" target="_self">Old Turnover Report </a>
-                        <a href="LiveLogSearch.aspx" id="aLog" runat="server" target="_self">Manage Log </a>
-                      
-                       <%-- <a href="HVGLog.aspx" id="aHVGLog" runat="server" target="_self">HVG Log </a>
-                        <a href="FuelLog.aspx" id="aFuelLog" runat="server" target="_self">Fuel Log </a>
-                        
-                        <a href="LiveLogSearch.aspx" id="aLiveLogSearch" runat="server" target="_self">Log Search</a>
---%>
-
-                    </div>
-                    <asp:Panel ID="pnlsecondMenu" runat="server">
-                        <div id="secondMenu" style="margin-top: 4px; margin-left: 10px;" runat="server">
-                            <asp:Button ID="btnAcknowledgement" runat="server" Text=" Acknowledgement " ClientIDMode="Static" OnClick="btnAchn_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                ForeColor="White" Width="140px" ToolTip=" Shift Workers " />
-                            <asp:Button ID="btnShiftWorker" runat="server" Text=" Shift Workers " ClientIDMode="Static" OnClick="btnShiftWorker_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                ForeColor="White" Width="120px" ToolTip=" Shift Workers " />
-                           <%-- <asp:Button ID="btnLiveLog" runat="server" Text=" Live Log " ClientIDMode="Static" OnClick="btnLiveLog_Click1" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                ForeColor="White" Width="120px" ToolTip=" Shift Workers " />--%>
-
-                            <asp:Button ID="btnAlarms" runat="server" Text=" Alarms " ClientIDMode="Static" OnClick="btnAlarms_Click" CssClass="btn" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                ForeColor="White" Width="120px" ToolTip="Alarms " />
-                            <asp:Button ID="btnReview" runat="server" Text=" Review" ClientIDMode="Static" OnClick="btnReview_Click" CssClass="btn" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                ForeColor="White" Width="120px" ToolTip="Review" />
-
-                        </div>
-                        
-                        
-                        <asp:Panel ID="pnlthirdAlmMenu" runat="server">
-                            <div id="Div2" style="margin-top: 4px; margin-left: 10px; margin-bottom: 40px;" runat="server">
-                                <asp:Button ID="btnCriticalAlm" runat="server" Text=" Critical Alarms" CssClass="btn"
-                                    OnClick="btnCriticalAlm_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="180px" ToolTip="Critical Alarms" />
-
-                            </div>
-                        </asp:Panel>
-                    </asp:Panel>
-                    <asp:Panel ID="pnlthirdMenu" runat="server" >
-                            <div id="thirdMenu" style="margin-top: 2px; margin-left: 5px; margin-bottom: 2px;" runat="server">
-                                <asp:Button ID="btnLogSearch" runat="server" Text=" Search " OnClick="btnLogSearch_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="80px" ToolTip=" Engineering Log " />
-                                <asp:Button ID="btnEngg" runat="server" Text=" Engineering  " OnClick="btnEngg_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="80px" ToolTip=" Engineering Log " />
-                                <asp:Button ID="btnHVG" runat="server" Text=" HVG   " OnClick="btnHVG_Click" CssClass="btn" BackColor="#b3112c" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="60px" ToolTip=" HVG Log " />
-                                <asp:Button ID="btnFuel" runat="server" Text=" Fuel " CssClass="btn" OnClick="btnFuel_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="60px" ToolTip="Fuel Log" />
-                                 <asp:Button ID="btnWaterTreatment" runat="server" Text=" Water Treatment " CssClass="btn" OnClick="btnWaterTreatment_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-                                    ForeColor="White" Width="160px" ToolTip="Water Treatment Log" />
-                                 <asp:Button ID="btnSecurityLog" runat="server" Text=" Security  " CssClass="btn" OnClick="btnSecurityLog_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-    ForeColor="White" Width="80px" ToolTip="Security Log" />
-                                                             <asp:Button ID="btnNearMiss" runat="server" Text="   Safety   " CssClass="btn" OnClick="btnNearMiss_Click" BackColor="Black" Font-Bold="true" Font-Size="Small" CausesValidation="false"
-ForeColor="White" Width="170px" ToolTip="Near Miss Security Form" />
-                            </div>
-							
-                        </asp:Panel>
-                </asp:Panel>
+                 
             </asp:ContentPlaceHolder>
         </div>
         
@@ -486,14 +425,14 @@ ForeColor="White" Width="170px" ToolTip="Near Miss Security Form" />
                     <ul>
                         <li>
                             <asp:ContentPlaceHolder ID="cph_guide" runat="server">
-                                <a target="_blank" href= "<%= ResolveUrl(lblGuide.Text) %>">User Guide for Near Miss Safety Reporting</a>
+                              
                                 
                             </asp:ContentPlaceHolder>
                         </li>
                         
-                        <li><a href ='~/FooterContact.aspx' target='_blank' runat="server">Contact Us</a></li>
+                        <li><a href ='mailto:ORFDTREFAMIT@mail.nih.gov?subject=PIUsers group access' target='_blank' runat="server">Contact DTR EFAM IT </a></li>
                         <li><a href ='http://www.adobe.com/products/acrobat/readstep2.html' target='_blank' runat="server">Download Adobe Reader</a></li>
-                        <li><a href ='~/Documents/ReleaseNotes.pdf' target='_blank' runat="server">User Guide for Near Miss Safety Reporting</a></li>
+                 
                         
                     </ul>
                     </div>

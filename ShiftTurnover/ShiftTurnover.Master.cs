@@ -38,6 +38,8 @@ namespace ShiftTurnover
                 if (!Page.IsPostBack)
                 {
                     lblTitle.Text = Page.Title; //added again to display updated value, if any on content page
+                    lblGuide.Text = "~/Documents/NearMissSafetyForm_UserManuel.docx";
+                    
                     if (Session["personname"] != null)
                     {
                         lblName.Text = (string)Session["personname"];
@@ -67,7 +69,7 @@ namespace ShiftTurnover
                             pnlthirdAlmMenu.Visible = false;
                         }
                     }
-                    else if (url.Contains("Log"))
+                    else if (url.Contains("Log") || url.Contains("NearMiss"))
                     {
                         pnlsecondMenu.Visible = false;
                         pnlthirdMenu.Visible = true;
@@ -114,6 +116,7 @@ namespace ShiftTurnover
             else if (url.Contains("HVGLog")) { btn = "HVGLog"; }
             else if (url.Contains("FuelLog")) { btn = "FuelLog"; }
             else if (url.Contains("SecurityLog")) { btn = "SecurityLog"; }
+            else if (url.Contains("NearMiss")) { btn = "NearMiss"; }
             else if (url.Contains("WaterTreatment")) { btn = "WaterTreatment"; }
             else { btn = "MainPage"; }
 
@@ -183,6 +186,17 @@ namespace ShiftTurnover
 
                     break;
                 case "SecurityLog":
+                    pnlsecondMenu.Visible = false;
+                    pnlthirdMenu.Visible = true;
+                    aLiveLog.Attributes["class"] = "inactive";
+                    aNewTurnover.Attributes["class"] = "inactive";
+                    aOldTurnover.Attributes["class"] = "inactive";
+                    aLog.Attributes["class"] = "active";
+                    aEquipmentStatus.Attributes["class"] = "inactive";
+                    //aLiveLogSearch.Attributes["class"] = "inactive";
+
+                    break;
+                case "NearMiss":
                     pnlsecondMenu.Visible = false;
                     pnlthirdMenu.Visible = true;
                     aLiveLog.Attributes["class"] = "inactive";
@@ -312,10 +326,20 @@ namespace ShiftTurnover
             else if (url.Contains("LiveLogSearch")) { statusMenubtn = "btnLogSearch"; }
             else if (url.Contains("WaterTreatment")) { statusMenubtn = "btnWaterTreatment"; }
             else if (url.Contains("SecurityLog")) { statusMenubtn = "btnSecurityLog"; }
+            else if (url.Contains("NearMiss")) { statusMenubtn = "btnNearMiss"; }
             else { statusMenubtn = "btnEngg"; }
             pnlthirdMenu.Visible = true;
             switch (statusMenubtn)
             {
+                case "btnNearMiss":
+                    btnSecurityLog.BackColor = Color.Black;
+                    btnWaterTreatment.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnHVG.BackColor = Color.Black;
+                    btnLogSearch.BackColor = Color.Black;
+                    btnEngg.BackColor = Color.Black;
+                    btnNearMiss.BackColor = ColorTranslator.FromHtml("#b3112c");
+                    break;
                 case "btnSecurityLog":
                     btnSecurityLog.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnWaterTreatment.BackColor = Color.Black;
@@ -323,6 +347,7 @@ namespace ShiftTurnover
                     btnHVG.BackColor = Color.Black;
                     btnLogSearch.BackColor = Color.Black;
                     btnEngg.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 case "btnWaterTreatment":
                     btnWaterTreatment.BackColor = ColorTranslator.FromHtml("#b3112c");
@@ -331,6 +356,7 @@ namespace ShiftTurnover
                     btnLogSearch.BackColor = Color.Black;
                     btnEngg.BackColor = Color.Black;
                     btnSecurityLog.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 case "btnEngg":
                     btnEngg.BackColor = ColorTranslator.FromHtml("#b3112c");
@@ -339,6 +365,7 @@ namespace ShiftTurnover
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
                     btnSecurityLog.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 case "btnHVG":
                     btnEngg.BackColor = Color.Black;
@@ -347,6 +374,7 @@ namespace ShiftTurnover
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
                     btnSecurityLog.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 case "btnFuel":
                     btnEngg.BackColor = Color.Black;
@@ -355,6 +383,7 @@ namespace ShiftTurnover
                     btnLogSearch.BackColor = Color.Black;
                     btnWaterTreatment.BackColor = Color.Black;
                     btnSecurityLog.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 case "btnLogSearch":
                     btnEngg.BackColor = Color.Black;
@@ -363,6 +392,7 @@ namespace ShiftTurnover
                     btnWaterTreatment.BackColor = Color.Black;
                     btnLogSearch.BackColor = ColorTranslator.FromHtml("#b3112c");
                     btnSecurityLog.BackColor = Color.Black;
+                    btnNearMiss.BackColor = Color.Black;
                     break;
                 default:
                     break;
@@ -513,6 +543,11 @@ namespace ShiftTurnover
         protected void btnSecurityLog_Click(object sender, EventArgs e)
         {
             Response.Redirect("SecurityLog.aspx");
+        }
+
+        protected void btnNearMiss_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NearMissSecurity.aspx");
         }
     }
 }

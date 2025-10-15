@@ -153,7 +153,7 @@ namespace ShiftTurnover
                     _DefaultPage = "Reports.aspx";
                     break;
                 case 2: // "Admin":
-                    _DefaultPage = "Admin.aspx";
+                    _DefaultPage = "ManageUser.aspx";
                     break;
                 default:
                     _DefaultPage = ""; //CustomErrorPage.aspx?

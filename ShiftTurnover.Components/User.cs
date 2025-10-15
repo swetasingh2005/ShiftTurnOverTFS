@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Data;
+using System.DirectoryServices.AccountManagement;
+using static ShiftTurnover.Components.ADGroupHandler;
 
 namespace ShiftTurnover.Components
 {
@@ -14,9 +16,11 @@ namespace ShiftTurnover.Components
         private int _personroleid;
         private string _displayname;
         private string _userid;
+ 
 
-        public int personroleid { get { return _personroleid; } }
+        public int personroleid { get { return _personroleid; }   }
         public string userid { get { return _userid; } }
+    
 
         public User(int intpersonroleID, string strUserID)
         {
@@ -26,7 +30,9 @@ namespace ShiftTurnover.Components
         public User()
         {
         }
-
+         
+     
+       
         public void SetUserInfo()
         {
             try
@@ -47,7 +53,8 @@ namespace ShiftTurnover.Components
             }
         }
     }
-
+  
+    
     public class Loto
     {
         private string _rowstamp;

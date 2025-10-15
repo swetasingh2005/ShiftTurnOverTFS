@@ -153,6 +153,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddEditFCISUser.aspx" />
+    <Content Include="AddEditUser.aspx" />
     <Content Include="AnswerPopup.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Assets\css\bootstrap-combined.min.css" />
@@ -171,6 +173,11 @@
     <Content Include="Assets\js\jquery.js" />
     <Content Include="CUPDocumentUpload.aspx" />
     <Content Include="FuelLog.aspx" />
+    <Content Include="ManageFCISUsers.aspx" />
+    <Content Include="ManageUser.aspx" />
+    <Content Include="NearMissPDF.aspx" />
+    <Content Include="NearMissSecurity.aspx" />
+    <Content Include="NearMissSubmittedReport.aspx" />
     <Content Include="SecurityLog.aspx" />
     <Content Include="WaterTreatmentLog.aspx" />
     <Content Include="HVGLog.aspx" />
@@ -647,6 +654,7 @@
     <Content Include="TestChart.aspx" />
     <Content Include="testheaders.aspx" />
     <Content Include="Web.sitemap" />
+    <Content Include="PrintPDF.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -779,6 +787,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditFCISUser.aspx.cs">
+      <DependentUpon>AddEditFCISUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEditFCISUser.aspx.designer.cs">
+      <DependentUpon>AddEditFCISUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditUser.aspx.cs">
+      <DependentUpon>AddEditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEditUser.aspx.designer.cs">
+      <DependentUpon>AddEditUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AlarmKPICalculation.cs" />
     <Compile Include="AnswerPopup.aspx.cs">
       <DependentUpon>AnswerPopup.aspx</DependentUpon>
@@ -801,12 +823,61 @@
     <Compile Include="FuelLog.aspx.designer.cs">
       <DependentUpon>FuelLog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageFCISUsers.aspx.cs">
+      <DependentUpon>ManageFCISUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageFCISUsers.aspx.designer.cs">
+      <DependentUpon>ManageFCISUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NearMissPDF.aspx.cs">
+      <DependentUpon>NearMissPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NearMissPDF.aspx.designer.cs">
+      <DependentUpon>NearMissPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NearMissSecurity.aspx.cs">
+      <DependentUpon>NearMissSecurity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NearMissSecurity.aspx.designer.cs">
+      <DependentUpon>NearMissSecurity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NearMissSubmittedReport.aspx.cs">
+      <DependentUpon>NearMissSubmittedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NearMissSubmittedReport.aspx.designer.cs">
+      <DependentUpon>NearMissSubmittedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPDF.Master.cs">
+      <DependentUpon>PrintPDF.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintPDF.Master.designer.cs">
+      <DependentUpon>PrintPDF.Master</DependentUpon>
+    </Compile>
     <Compile Include="SecurityLog.aspx.cs">
       <DependentUpon>SecurityLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SecurityLog.aspx.designer.cs">
       <DependentUpon>SecurityLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftTurnoverAdmin.Master.cs">
+      <DependentUpon>ShiftTurnoverAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShiftTurnoverAdmin.Master.designer.cs">
+      <DependentUpon>ShiftTurnoverAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="WaterTreatmentLog.aspx.cs">
       <DependentUpon>WaterTreatmentLog.aspx</DependentUpon>
@@ -1077,6 +1148,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="ShiftTurnover.Master" />
     <Content Include="ShiftTurnoverNoHeader.Master" />
+    <Content Include="ShiftTurnoverAdmin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

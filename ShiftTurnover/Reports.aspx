@@ -25,6 +25,9 @@
                         <ul>
                                 <li > <a href="ReportNotSubmitted.aspx"><strong>Shift Turnover Not Submissions Report</strong></a></li>
                             </ul>
+                        <ul>
+                                <li > <a href="NearMissSubmittedReport.aspx"><strong>Safety Observation Report Submission </strong></a></li>
+                            </ul>
                     </fieldset>
                 </asp:Panel>
             </asp:TableCell>
