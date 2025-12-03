@@ -29,7 +29,8 @@ OnClick="btnPrintPDF_Click" /><br />
                <div class="form-group" style="background-color:antiquewhite; padding-left:10px;padding-top:10px;padding-bottom:10px;" >
     <label   >
       <strong>    A near-miss is a potential hazard or incident in which no property was damaged and no personal injury was sustained, but where, given a slight shift in time or position, damage or injury easily could have occurred.
-        <br />    *Note-If property was damaged or injury did occur, please reach out to the nearest supervisor to complete the Incident Investigation Form for Supervisors.
+        <br />    *Note-If property was damaged or injury did occur, please reach out to the nearest supervisor to complete the <a href="https://nih.sharepoint.com/:w:/s/ORS-ORF-CUPWeeklySchedulingMeetings-Safety/IQABTMvbM_6WTood-qZQ_-sqAfH9nbsqhd6N1EPTQa1fJms?e=gpG20H" target="_blank"> Incident Investigation Form </a>  for Supervisors.
+         
           </strong>
         </label>
                   

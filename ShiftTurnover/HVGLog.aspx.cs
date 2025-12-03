@@ -614,7 +614,7 @@ namespace ShiftTurnover
         protected void GrPast_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
 
-            string _attachmentid = "";
+            string _attachmentid = ""; 
             int personroleid = 0;
             string lbldeleted = "No";
             string Admins = System.Configuration.ConfigurationManager.AppSettings["Admin"];
@@ -626,6 +626,7 @@ namespace ShiftTurnover
                 lbldeleted=Convert.ToString(e.Item.Cells[5].Text);
                 personroleid = Convert.ToInt16(e.Item.Cells[9].Text);
                 _attachmentid = Convert.ToString(e.Item.Cells[8].Text);
+                 
                 if (btnDelete != null)
                 {
                     btnDelete.Attributes.Add("OnClick", "return confirmBox2()");
@@ -643,6 +644,11 @@ namespace ShiftTurnover
                     btnDelete.Visible = false;
                     btnEdit.Visible = false;
                 }
+                if (lbldeleted.Equals("Yes"))
+                {
+                    e.Item.Style.Value = "text-decoration:line-through;";
+                }
+
             }
            
              

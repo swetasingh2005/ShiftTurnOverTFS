@@ -631,23 +631,24 @@ namespace ShiftTurnover
         {
 
             string _attachmentid = "";
-            int personroleid = 0;
-            
+            int personroleid = 0; string lbldeleted = "No";
+
             string Admins = System.Configuration.ConfigurationManager.AppSettings["Admin"];
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton lnkDoc = (System.Web.UI.WebControls.LinkButton)e.Item.FindControl("lnkDoc");
                 ImageButton btnDelete = (System.Web.UI.WebControls.ImageButton)e.Item.FindControl("btnDelete");
                 ImageButton btnEdit = (System.Web.UI.WebControls.ImageButton)e.Item.FindControl("btnEdit");
-                personroleid = Convert.ToInt16(e.Item.Cells[8].Text);
-                _attachmentid = Convert.ToString(e.Item.Cells[7].Text);
+                lbldeleted = Convert.ToString(e.Item.Cells[5].Text);
+                personroleid = Convert.ToInt16(e.Item.Cells[9].Text);
+                _attachmentid = Convert.ToString(e.Item.Cells[8].Text);
                 if (btnDelete != null)
                 {
                     btnDelete.Attributes.Add("OnClick", "return confirmBox2()");
                 }
                 if (!_attachmentid.Equals("&nbsp;"))
                 { lnkDoc.Text = "View Document"; }
-                if (personroleid == (int)Session["personroleid"] || Admins.Contains((string)Session["ssoname"]))//same user
+                if (lbldeleted.Equals("No") && (personroleid == (int)Session["personroleid"] || Admins.Contains((string)Session["ssoname"])))//same user
                 {
                     btnDelete.Visible = true;
                     btnEdit.Visible = true;
@@ -656,6 +657,10 @@ namespace ShiftTurnover
                 {
                     btnDelete.Visible = false;
                     btnEdit.Visible = false;
+                }
+                if (lbldeleted.Equals("Yes"))
+                {
+                    e.Item.Style.Value = "text-decoration:line-through;";
                 }
             }
            
@@ -671,7 +676,7 @@ namespace ShiftTurnover
 
                 string _livelogid = Convert.ToString(e.Item.Cells[1].Text);
                 string _attachmentid = ""; int _attid = 0;
-                _attachmentid =Convert.ToString(e.Item.Cells[6].Text);
+                _attachmentid =Convert.ToString(e.Item.Cells[7].Text);
                 try
                 {
                      _attid = Int32.Parse(_attachmentid);

@@ -215,6 +215,7 @@
                                                         <asp:BoundColumn DataField="Reported By" HeaderText="Reported By"></asp:BoundColumn>
                                                         <asp:BoundColumn DataField="Time of Event" HeaderText="Time of Event"></asp:BoundColumn>
                                                         <asp:BoundColumn DataField="Description"  HeaderText="Description"></asp:BoundColumn>
+                                                        <asp:BoundColumn DataField="Deleted"  HeaderText="Deleted"></asp:BoundColumn>
                                                          <asp:TemplateColumn HeaderText="Action" HeaderStyle-HorizontalAlign="Center">
                                                             <ItemTemplate>
                                                                 <span class="buttonColumn">

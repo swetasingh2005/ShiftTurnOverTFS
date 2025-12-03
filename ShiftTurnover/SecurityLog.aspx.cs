@@ -681,6 +681,10 @@ namespace ShiftTurnover
                     btnDelete.Visible = false;
                     btnEdit.Visible = false;
                 }
+                if (lbldeleted.Equals("Yes"))
+                {
+                    e.Item.Style.Value = "text-decoration:line-through;";
+                }
             }
 
 
