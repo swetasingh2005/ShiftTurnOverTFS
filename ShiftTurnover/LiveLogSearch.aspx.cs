@@ -8,8 +8,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
+using System.Web.Http.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ShiftTurnover
 {
@@ -430,8 +432,9 @@ namespace ShiftTurnover
 
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
-
-                            strBody.Append("<tr>");
+                            if (row["Deleted"].ToString().Equals("Yes")) 
+                            { strBody.Append("<tr style='text-decoration:line-through;'>"); }
+                            else { strBody.Append("<tr>"); }
 
 
                             if (ddlLogType.SelectedIndex == 0)
