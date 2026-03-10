@@ -106,7 +106,7 @@ namespace ShiftTurnover
         protected void LoadSmartGridForFuel()
         {
             System.Data.DataTable ds = GetData();
-            int _attID = 0; int _ID = 0;string ViewURL = ""; string EditURL = "";string DeleteURL = ""; 
+             int _ID = 0;string ViewURL = ""; string EditURL = "";string DeleteURL = ""; 
             StringBuilder strHtml = new StringBuilder();
             StringBuilder strBody = new StringBuilder();
            
@@ -189,9 +189,11 @@ namespace ShiftTurnover
                      
                             //strBody.Append("<td style='text-align:left; visible='false' border:solid 1px black;  '>" + row["personroleid"].ToString() + "</td>");
 
-                            try
-                            { _attID = Int32.Parse(Convert.ToString(row["AttachmentID"])); }
-                            catch (FormatException) { }
+                            //try
+                            //{ 
+                            //    _attID = Int32.Parse(Convert.ToString(row["AttachmentID"])); 
+                            //}
+                            //catch (FormatException) { }
                             try
                             { _ID = Int32.Parse(Convert.ToString(row["NearMissSecurityID"])); }
                             catch (FormatException) { }
@@ -201,6 +203,7 @@ namespace ShiftTurnover
                             string uPreview = ResolveUrl("~/Images/Image.png");
                         
                             string uDel = ResolveUrl("~/Images/archive.jpg");
+                            int _attID = row.Field<int?>("AttachmentID") ?? 0;
                             if (_attID > 0)
                             {
                                 ViewURL= "NearMissSubmittedReport.aspx?update=view&"   ;
