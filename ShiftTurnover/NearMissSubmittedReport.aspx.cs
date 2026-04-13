@@ -123,8 +123,8 @@ namespace ShiftTurnover
 
                     strHtml.Append("<table  align='center'   id=\'example\' >  ");
                     strHtml.Append("<thead><tr Width:100%; border:solid 1px black;>");
-                    //strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;' visible='false'>Form ID</th>");
-                    strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;'>Incident <br /> Date</th>");
+                    strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;' visible='false'>Form ID</th>");
+                    strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;'>Incident <br />Incident Date</th>");
                     strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;'>Reported <br />By</th>");
                     
                     strHtml.Append("<th style='text-align:center; border:solid 1px black; color:white;  background-color:grey;'>Contact Info</th>");
@@ -151,9 +151,9 @@ namespace ShiftTurnover
                             if (row["Deleted"].ToString().Equals("1"))
                             { strBody.Append("<tr style='text-decoration: line-through; '>"); }
                             else { strBody.Append("<tr>"); }
-
-                            strBody.Append("<td style='text-align:left; border:solid 1px ;  black;'>" + row["IncidentDateTime"].ToString() + "</td>");
-                            //strBody.Append("<td style='text-align:left; border:solid 1px ; black; ' visible='false'>" + row["NearMissSecurityID"].ToString() + "</td>");
+                            strBody.Append("<td style='text-align:left; border:solid 1px ; black; ' visible='false'>  Form-" + row["NearMissSecurityID"].ToString() + "</td>");
+                            strBody.Append("<td style='text-align:left; border:solid 1px ;  black;'>" + Convert.ToDateTime(row["IncidentDateTime"]).ToString("dd/MM/yyyy hh:mm tt") + "</td>");
+                            
                             strBody.Append("<td style='text-align:left; border:solid 1px ;  black;'>" + row["CreatedBy"].ToString() + "</td>");
                            
                             strBody.Append("<td style='text-align:left; border:solid 1px ;  black;'>" + row["ContactInfo"].ToString() + "</td>");

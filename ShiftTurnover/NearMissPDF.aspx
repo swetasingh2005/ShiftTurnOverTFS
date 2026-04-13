@@ -1,6 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PrintPDF.Master" AutoEventWireup="true" CodeBehind="NearMissPDF.aspx.cs" Inherits="ShiftTurnover.NearMissPDF" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <style type="text/css">
+            /* Full width */
+.custom-grid {
+    width: 100%;
+}
+
+/* Header light grey */
+.grid-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Optional: better spacing */
+.custom-grid th,
+.custom-grid td {
+    padding: 10px;
+    text-align: left;
+}
             .bigCheckBox {
     font-size: 18px; /* Bigger text */
 }
@@ -154,7 +171,10 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_main" runat="server">
                           <div class="container-fluid" >
-      <h1> Security Observation Report Form</h1>
+      <h1> Security Observation Report Form ID: 
+           <asp:Label  ForeColor="Green" Font-Bold="true" ID="lblID" runat="server"   />
+                     
+      </h1>
        
          <asp:Panel ID="pnlSubmission" runat="server" Visible="true">
                          <div class="form-group">
@@ -198,10 +218,18 @@
 
     
 
-      <div class="form-group">
-        <label for="lblTask"> Please explain how the issue was resolved or the recommended actions to resolve:</label>
-        <asp:Label  ForeColor="Green" Font-Bold="true" ID="lblTask" runat="server" Rows="5" CssClass="form-control description-label"  />
-      </div>
+    <div class="form-group" >
+
+    <label for="lblTask" style="margin:0; white-space:nowrap;">
+        Please explain how the issue was resolved or the recommended actions to resolve:
+    </label>
+        
+    <asp:Label ForeColor="Green" Font-Bold="true"
+        ID="lblTask" runat="server"
+        CssClass="form-control description-label"
+        style="flex:1; min-width:0; white-space:normal;" />
+
+</div>
 
      
 
@@ -211,17 +239,128 @@
       </div>
              <div class="form-group">
   <label for="lblNearMiss"> Near Miss?:</label>
-    <asp:Label  ForeColor="Green" Font-Bold="true" ID="lblNearMiss" runat="server"   CssClass="form-control description-label" />
+    <asp:Label  ForeColor="Green" Font-Bold="true" ID="lblNearMiss" runat="server"    />
 </div>
 
-          <div class="form-group">
-     <label for="lblAttachment"> Attachment:</label>
-       <asp:Label  ForeColor="Green" Font-Bold="true" ID="lblAttachment" runat="server" CssClass="form-control" />
-            <asp:Image ID="aspImage" runat="server" AlternateText="No Image"  ClientIDMode="Static"    />
-      
-            
- 
-   </div>
+<div class="form-group" style="display:flex;border: 1px solid black;  align-items:center; gap:20px; padding-left:20px; padding-right:20px; padding-top:20px; padding-bottom:20px; background-color:aliceblue;">
+  
+
+    <label for="lblAttachment" class="mb-0">Attachment:</label>
+    <asp:GridView ID="gvAttachments" runat="server" AutoGenerateColumns="False"
+      CssClass="table table-bordered w-100 custom-grid"
+    HeaderStyle-CssClass="grid-header"
+    OnRowCommand="gvAttachments_RowCommand">
+
+    <Columns>
+                <asp:TemplateField HeaderText="Attachment">
+    <ItemTemplate>
+        <asp:Label ID="lblAttachment" runat="server"
+            Text='<%# Eval("Attachments") %>'
+            ForeColor="Green" Font-Bold="true"
+            CssClass="form-control w-auto" />
+    </ItemTemplate>
+</asp:TemplateField>
+        <asp:TemplateField HeaderText="Uploaded Date">
+            <ItemTemplate>
+                <asp:Label ID="lblCreateDate" runat="server"
+                    Text='<%# Eval("CreateDate") %>'
+                    ForeColor="Green" Font-Bold="true"
+                    CssClass="form-control w-auto" />
+            </ItemTemplate>
+        </asp:TemplateField>
+         
+         <asp:TemplateField HeaderText="Uploaded By">
+     <ItemTemplate>
+         <asp:Label ID="lblUploadedBy" runat="server"
+             Text='<%# Eval("UploadedBy") %>'
+             ForeColor="Green" Font-Bold="true"
+             CssClass="form-control w-auto" />
+     </ItemTemplate>
+ </asp:TemplateField>
+        <asp:TemplateField HeaderText="View">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkDoc" runat="server"
+                    Text="View"
+                    CommandName="ViewDoc"
+                    CommandArgument='<%# Eval("AttachmentId") %>'
+                    CssClass="btn btn-link p-0" />
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:ImageButton ID="btnDelete" runat="server"
+                    CommandName="DeleteRow"
+                    CommandArgument='<%# Eval("AttachmentId") %>'
+                    ImageUrl="~/Images/Delete.png"
+                    Width="25px" Height="25px" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+  
+</div>
+             
+
+<div class="form-group" style="border: 1px solid black; padding-left:20px; padding-right:20px; padding-top:20px; padding-bottom:20px; background-color:gainsboro;">  
+    <div class="row align-items-end g-2">
+
+        <!-- Status -->
+        <div class="col-12">
+            <asp:Label runat="server" ID="lblStatus" Text="" CssClass="alert" />
+        </div>
+
+        <!-- File Upload -->
+        <div class="col-md-6">
+            <label class="form-label fw-bold">
+                File to Upload:
+                <img src="Images/icon_required.gif" alt="Required" height="12" width="13" />
+            </label>
+
+            <asp:FileUpload 
+                ID="fileUpload" 
+                runat="server" 
+                CssClass="form-control" 
+                TabIndex="14" />
+
+            <asp:RequiredFieldValidator 
+                ID="RequiredFieldValidator4" 
+                runat="server" 
+                ControlToValidate="fileUpload" 
+                ValidationGroup="vgAttach" 
+                Display="Dynamic" 
+                CssClass="text-danger small" 
+                ErrorMessage="Please choose a file to upload" />
+        </div>
+
+        <!-- Upload Button -->
+        <div class="col-md-3">
+            <asp:Button 
+                ID="btnUpload" 
+                runat="server" 
+                CssClass="btn btn-danger w-100" 
+                ValidationGroup="vgAttach"
+                Text="Upload Document" 
+                OnClick="btnUpload_Click" />
+        </div>
+
+        <!-- Cancel Button -->
+        <div class="col-md-3">
+            <asp:Button 
+                ID="btnCancel" 
+                runat="server" 
+                CssClass="btn btn-success w-100" 
+                CausesValidation="false" 
+                Text="Cancel Upload" 
+                ToolTip="Clear uploaded document" 
+                OnClick="btnCancel_Click" />
+        </div>
+
+    </div>
+</div>
+
+
+
            <div class="form-group" style="border: 1px solid black; padding-left:20px; padding-right:20px; padding-top:20px; padding-bottom:20px; background-color:azure;">  
                 <div class="form-group">
                  <asp:Label ID="lblResult" runat="server" CssClass="alert" Font-Bold="true" Font-Size="Larger" /></div>
@@ -253,8 +392,7 @@ CssClass="wiznavbuttons" CellPadding="0" CellSpacing="0"
                                         
                                        
                        <asp:TableCell HorizontalAlign="Left">
-                                                           <asp:Button ID="btnDownload" runat="server" CssClass="form-control" OnClientClick="printPage(); return false;"  Text="Print this Form" BackColor="#b3112c" ForeColor="White"   Width="280"
-OnClick="btnDownload_Click" /> 
+                                                          
                                                                                                                             
                                                       </asp:TableCell>
                                                                      <asp:TableCell>
