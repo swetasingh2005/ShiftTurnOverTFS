@@ -303,15 +303,28 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
         </div>
         
  replaced banner below -->
+            <div id="header" style="position:relative;">
 
-        <div id="header">
+<a id="title_logo" href="http://www.nih.gov/">
+    <img src='~/Images/NIH_Master_Logo_Mark_2Color.png' border="0"
+         title="National Institutes of Health" alt="NIH"
+         id="imgNIHlogo" runat="server" />
+</a>
+
+<div>Office of Research Facilities</div>
+<h1><a href="/">Shift Turnover</a></h1>
+<div>Division of Technical Resources</div>
+
+<!-- CENTERED QR IN SHADED AREA -->
+ </div>
+       <%-- <div id="header">
 		<a id="title_logo" href="http://www.nih.gov/">
 			<img src='~/Images/NIH_Master_Logo_Mark_2Color.png' border="0" title="National Institutes of Health" alt="NIH" id="imgNIHlogo" runat="server" />
 		</a>
         <div>Office of Research Facilities</div>
 		<h1><a href="/">Shift Turnover</a></h1>
 		<div>Division of Technical Resources</div>
-    </div>
+    </div>--%>
          <div id="mainMenu">&nbsp;
             <!---
             <asp:ContentPlaceHolder ID="cph_breadcrumb" runat="server">

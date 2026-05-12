@@ -267,6 +267,17 @@
     
 </asp:Content>
 <asp:Content ID="Content17" ContentPlaceHolderID="cph_footer" runat="server">
+        <div id="footer" style="display:flex; justify-content:center; align-items:center; gap:12px; padding:10px 0; background:#333; color:#fff; min-height:60px; box-sizing:border-box;">
+        <strong style="white-space:nowrap;">
+            For anonymous Safety reporting, please scan the QR code:
+        </strong>
+
+        <a href="https://dtrdata.orf.od.nih.gov/sto/NearMissSecurity.aspx" target="_blank">
+            <img src="Images/Barcode.png"
+                 alt="QR Code"
+                 style="width:60px; height:60px; display:block;" />
+        </a>
+    </div>
 </asp:Content>
  
 
